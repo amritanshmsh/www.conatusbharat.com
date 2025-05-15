@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide scrollbar */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --primary-blue: #00b8ea;
+  --background-color: #ffffff;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: var(--background-color);
+  color: #000000; /* default text color for contrast */
+}
+
+#root, #__next {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Example utility class for primary blue usage */
+.text-primary {
+  color: var(--primary-blue);
+}
+
+.bg-primary {
+  background-color: var(--primary-blue);
+}
+
+
+.wonder-card {
+  position: relative;
+  border-radius: 2rem;
+  background: #0B0F24;
+  padding: 2.5rem 2.5rem 3.5rem 2.5rem;
+  overflow: visible;
+}
+
+.wonder-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  background: transparent;
+  z-index: 0;
+  clip-path: path("M0,0 H100% V100% Hcalc(100% - 70px) A35,35 0 0 1 calc(100% - 105px),calc(100% + 35px) A35,35 0 0 1 calc(100% - 140px),100% H0 Z");
+}
