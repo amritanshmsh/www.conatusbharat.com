@@ -1,6 +1,6 @@
 import Aboutus from "./components/Aboutus";
 import FaqSection from "./components/Faqsection";
-import FinalSection from "./components/FinalSection";
+import FinalSection from "./components/10.FinalSection";
 import ForSchool from "./components/ForSchool";
 import Foundernote from "./components/Foundernote";
 import Hero from "./components/Hero";
@@ -15,10 +15,10 @@ export default function Home() {
       
         <Hero />
         <Aboutus />
-        {/* <Products /> */}
+        <Products />
         <Foundernote />
-
-        <ForSchool />
+{/* 
+        <ForSchool /> */}
         <FaqSection />
         <FinalSection />
       </div>

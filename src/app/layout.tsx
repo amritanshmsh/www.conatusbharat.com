@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter as font } from "next/font/google";
 import Head from "next/head";
+import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -61,18 +62,19 @@ export default function RootLayout({
           })}
         </script>
       </Head>
-      <body className={`${inter.className} bg-white text-black`}>
-        {/* <Loader /> */}
-        <header>
-       
-          <Navbar />
-        </header>
-        <main className="flex-grow">
-          {children}
-        </main>
-        <footer>
-        <Footer />
-        </footer>
+      <body suppressHydrationWarning className={inter.className}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {/* <Loader /> */}
+          <header>
+            <Navbar />
+          </header>
+          <main className="flex-grow">
+            {children}
+          </main>
+          <footer>
+            <Footer />
+          </footer>
+        </ThemeProvider>
       </body>
     </html>
   );

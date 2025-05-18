@@ -1,7 +1,11 @@
 "use client"
 import React, { useRef, useEffect } from 'react';
+import { useTheme } from 'next-themes';
 
 const Aboutus = () => {
+  const { theme } = useTheme();
+  const isLightMode = theme === 'light';
+
   const firstRef = useRef<HTMLParagraphElement>(null);
   const secondRef = useRef<HTMLParagraphElement>(null);
   const thirdRef = useRef<HTMLParagraphElement>(null);
@@ -30,7 +34,7 @@ const Aboutus = () => {
   }, []);
 
   return (
-    <section className="bg-gray-950 text-white py-24 px-6">
+    <section id="about" className={`${isLightMode ? 'bg-white text-black' : 'bg-black text-white'} py-24 px-6`}>
       <div className="max-w-5xl mx-auto text-center space-y-10">
         <h2 className="text-3xl sm:text-4xl font-semibold">
           This is what we’re up against.

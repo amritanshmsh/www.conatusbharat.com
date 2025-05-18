@@ -2,15 +2,19 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
 
 export default function Hero() {
+  const { theme } = useTheme();
+  const isLightMode = theme === "light";
+
   return (
-    <section className="relative bg-gray-950">
+    <section className={`relative ${isLightMode ? "bg-white text-black" : "bg-black text-white"}`}>
       <Image
         src="/assets/_.jpeg"
         alt="Background Illustration"
         fill
-        className="absolute inset-0 object-cover opacity-10 pointer-events-none"
+        className={`absolute inset-0 object-cover pointer-events-none ${isLightMode ? "opacity-20" : "opacity-10"}`}
       />
       <div className="mx-auto max-w-7xl px-6 py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center">
@@ -21,7 +25,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="text-center md:text-left"
         >
-          <h1 className="text-4xl sm:text-5xl font-bebas-neue leading-tight text-white mx-auto">
+          <h1 className="text-4xl sm:text-5xl font-bebas-neue leading-tight mx-auto">
             <strong className="font-semibold">We live in 2025.</strong><br />
             But classrooms still feel like <strong className="font-semibold">1970</strong>.<br />
             The world moves faster than schools can adapt.<br />

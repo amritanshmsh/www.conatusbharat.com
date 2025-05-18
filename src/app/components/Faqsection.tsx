@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useTheme } from 'next-themes';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,6 +30,9 @@ const faqData = [
 ];
 
 const FaqSection: React.FC = () => {
+  const { theme } = useTheme();
+  const isLightMode = theme === 'light';
+
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const faqRefs = useRef<Array<HTMLDivElement | null>>([]);
 
@@ -67,33 +71,36 @@ const FaqSection: React.FC = () => {
   }, [openIndex]);
 
   return (
-    <div className="relative z-[50] w-full bg-[#0B0F24] py-14 px-6 md:px-12 lg:px-20">
-      <h2 className="text-2xl md:text-3xl font-semibold text-center text-white mb-10">
-        Frequently Asked <span className="text-white">Questions</span>
+    <section id="faq" className={`relative z-[50] w-full ${isLightMode ? 'bg-white' : 'bg-black'} py-10 px-4 md:px-10 lg:px-16`}>
+      <h2 className="text-3xl sm:text-4xl font-semibold text-left mb-10">
+        <span className={isLightMode ? 'text-gray-500' : 'text-gray-300'}>Frequently Asked </span>
+        <span className={isLightMode ? 'text-black' : 'text-white'}>Questions</span>
       </h2>
-      <div className="max-w-4xl mx-auto space-y-5">
+      <div className="max-w-2xl space-y-5 pl-1">
         {faqData.map((faq, index) => (
           <div 
             key={index} 
-            ref={(el) => (faqRefs.current[index] = el)}
-            className="faq-item p-5 md:p-6 rounded-xl bg-[#11182B] shadow-lg border border-[#202B44] transition-all duration-300 hover:bg-[#1A233B]"
+            ref={el => {
+              faqRefs.current[index] = el;
+            }}
+            className={`faq-item p-3 md:p-4 rounded-xl ${isLightMode ? 'bg-gray-100 hover:bg-gray-200 border-gray-300' : 'bg-[#0c0c0c] hover:bg-[#1a1a1a] border-[#2a2a2a]'} shadow-sm border border-[0.2px] transition-all duration-300`}
           >
             <button 
               onClick={() => toggleFaq(index)} 
-              className="w-full text-left flex justify-between items-center font-semibold text-base md:text-lg text-white transition-colors duration-300"
+              className={`w-full text-left flex justify-between items-center font-medium text-sm md:text-base ${isLightMode ? 'text-gray-800' : 'text-white'} transition-colors duration-300`}
             >
               {faq.question}
               <span className={`transition-transform duration-300 ${openIndex === index ? 'rotate-90' : ''}`}>
                 ➜
               </span>
             </button>
-            <div className="faq-content overflow-hidden mt-2 text-gray-400 h-0 opacity-0">
-              <p className="pt-2 text-sm md:text-base" dangerouslySetInnerHTML={{ __html: faq.answer }} />
+            <div className="faq-content overflow-hidden mt-2 h-0 opacity-0">
+              <p className={`pt-2 text-xs md:text-sm ${isLightMode ? 'text-gray-600' : 'text-gray-400'}`} dangerouslySetInnerHTML={{ __html: faq.answer }} />
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
