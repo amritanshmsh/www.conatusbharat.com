@@ -13,13 +13,10 @@ body::-webkit-scrollbar {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
   overflow-x: hidden;
   scroll-behavior: smooth;
   background-color: var(--background-color);
-  color: #000000; /* default text color for contrast */
 }
 
 #root, #__next {

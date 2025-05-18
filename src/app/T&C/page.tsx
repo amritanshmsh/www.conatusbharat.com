@@ -2,11 +2,11 @@ import React from 'react';
 
 function TermsOfUse() {
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-8 bg-[#0B0F24] text-white min-h-screen">
             <h1 className="text-3xl font-bold mb-4">Synapse Terms of Use (B2B Subscription Model)</h1>
             <p className="text-sm text-gray-500">By ConatusBharat</p>
 
-            <div className="prose lg:prose-xl mb-8">
+            <div className="prose lg:prose-xl prose-invert mb-8">
                 <p>
                     {`These Terms of Use ("Terms") govern the access to and use of Synapse, a software platform provided by ConatusBharat ("we," "us," or "our") to schools or educational institutions ("School" or "you") under a subscription model. By accessing or using Synapse, you, on behalf of your School, agree to be bound by these Terms.`}
                 </p>
@@ -104,7 +104,7 @@ function TermsOfUse() {
                 <p>
                     {`If you have any questions about these Terms, please contact us at: `} <br />
                     <b>ConatusBharat</b> <br />
-                    {`Email: conatusbharat@gmail.com`}
+                    {`Email: info@conatusbharat.com`}
                 </p>
 
                 <p className="text-sm">

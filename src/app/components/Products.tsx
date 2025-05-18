@@ -5,7 +5,11 @@ const Products = () => {
   return (
     <section className="py-16 px-6 md:px-20 bg-[#090C1A] text-white">
       <div className="max-w-7xl mx-auto space-y-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center px-0">Our Products &amp; Solutions</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center px-0">What We’re Building</h2>
+        <p className="text-center max-w-2xl mx-auto text-gray-300 mb-8 text-sm sm:text-base">
+          Conatus Bharat is not a company with products. It’s a movement equipped with tools —
+          to reimagine learning, rebuild schools, and help every child discover who they truly are.
+        </p>
 
         {/* Row 1 */}
         <div className="flex flex-col lg:flex-row gap-4">

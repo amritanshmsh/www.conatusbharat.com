@@ -2,12 +2,12 @@ import React from 'react';
 
 function PrivacyPolicy() {
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-8 bg-[#0B0F24] text-white min-h-screen">
             <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
 
             <p className="text-sm text-gray-500">Effective Date: June 21, 2024</p>
 
-            <div className="prose lg:prose-xl mb-8"> 
+            <div className="prose lg:prose-xl prose-invert mb-8"> 
                 <p>
                     {`Conatus Bharat ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services. By using our services, you agree to the collection and use of information in accordance with this policy.`}
                 </p>
@@ -67,7 +67,7 @@ function PrivacyPolicy() {
                 <p>
                     If you have any questions about this Privacy Policy, please contact us at: <br />
                     <b>Conatus Bharat</b> <br />
-                    Email: conatusbharat@gmail.com
+                    Email: info@conatusbharat.com
                 </p>
             </div>
 
