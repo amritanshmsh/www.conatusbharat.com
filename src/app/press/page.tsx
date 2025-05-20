@@ -13,7 +13,7 @@ const PressPage = () => {
         <section className="mb-10">
           <h2 className="text-2xl font-semibold mb-2">About Conatus Bharat</h2>
           <p className="text-gray-400 text-sm leading-relaxed">
-            Conatus Bharat is a movement to reinvent how India learns. We're not just an EdTech company — we're a collective of thinkers, builders, and educators committed to helping students own their future. From adaptive assessments to AI-powered learning journeys, we build products that empower schools and learners alike.
+            Conatus Bharat is a movement to reinvent how student learns. We're not just an EdTech company — we're a collective of thinkers, builders, and educators committed to helping students own their future. From adaptive assessments to AI-powered learning journeys, we build products that empower schools and learners alike.
           </p>
         </section>
 
@@ -22,7 +22,7 @@ const PressPage = () => {
           <p className="text-gray-400 text-sm">
             For media inquiries, interviews, or speaking opportunities, please reach out to:
             <br />
-            <a href="mailto:info@conatusbharat.com" className="underline hover:text-white">
+         a   <a href="mailto:info@conatusbharat.com" className="underline hover:text-white">
               info@conatusbharat.com
             </a>
           </p>

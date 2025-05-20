@@ -62,7 +62,7 @@ const Footer = () => {
           <ul className={`space-y-2 text-sm ${isLightMode ? 'text-gray-600' : 'text-gray-400'}`}>
             <li><a href="/mentors" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Mentors</a></li>
             <li><a href="/#faq" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>FAQs</a></li>
-            <li><a href="https://medium.com/@amritanshmsh/walking-paradoxes-bd02b402f417" target="_blank" rel="noopener noreferrer" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Insights</a></li>
+            <li><a href="/Insight" target="_blank" rel="noopener noreferrer" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Insights</a></li>
             <li><a href="/" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Home</a></li>
             <li><a href="/contact" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Let’s Talk</a></li>
           </ul>

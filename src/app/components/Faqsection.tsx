@@ -72,11 +72,11 @@ const FaqSection: React.FC = () => {
 
   return (
     <section id="faq" className={`relative z-[50] w-full ${isLightMode ? 'bg-white' : 'bg-black'} py-10 px-4 md:px-10 lg:px-16`}>
-      <h2 className="text-3xl sm:text-4xl font-semibold text-left mb-10">
+      <h2 className="text-3xl sm:text-4xl font-semibold mb-10 max-w-4xl mx-auto px-4 md:px-10 lg:px-20 text-left">
         <span className={isLightMode ? 'text-gray-500' : 'text-gray-300'}>Frequently Asked </span>
         <span className={isLightMode ? 'text-black' : 'text-white'}>Questions</span>
       </h2>
-      <div className="max-w-2xl space-y-5 pl-1">
+      <div className="max-w-4xl mx-auto space-y-5 px-4 md:px-10 lg:px-20">
         {faqData.map((faq, index) => (
           <div 
             key={index} 
