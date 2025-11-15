@@ -15,52 +15,55 @@ function Mentor() {
 
       {/* Mentor Section Title */}
       <div id="mentor" className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-10">
-          Our <span className="text-purple">Mentors ✨</span>
+        <h2 className={`text-5xl md:text-6xl font-extrabold mb-4 ${isLightMode ? 'text-black' : 'text-white'}`}>
+          Our <span className={`${isLightMode ? 'text-gray-800' : 'text-gray-200'}`}>Mentors</span> ✨
         </h2>
+        <p className={`text-lg ${isLightMode ? 'text-gray-600' : 'text-gray-400'} max-w-2xl mx-auto`}>
+          Meet the visionaries guiding our journey
+        </p>
       </div>
 
       {/* Mentor Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 min-[1100px]:grid-cols-3 xl:grid-cols-3 gap-10 md:gap-14 justify-center w-full max-w-7xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 justify-center w-full max-w-7xl">
         {mentorsData.map((mentor, index) => (
           <div
             key={index}
-            className={`relative flex flex-col items-center p-6 rounded-xl ${isLightMode ? 'bg-gray-100' : 'bg-[#0d0d0d]'} shadow-lg transform transition-all hover:scale-105 w-[21rem] mx-auto`}
+            className={`group relative flex flex-col items-center p-8 rounded-2xl ${isLightMode ? 'bg-gray-50 hover:bg-gray-100' : 'bg-gray-900 hover:bg-gray-800'} shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl w-full max-w-sm mx-auto border ${isLightMode ? 'border-gray-200' : 'border-gray-800'}`}
           >
             {/* Mentor Image */}
-            <div className={`relative w-44 h-44 md:w-52 md:h-52 overflow-hidden rounded-full border-2 ${isLightMode ? 'border-blue-500' : 'border-white'} shadow-md`}>
+            <div className={`relative w-32 h-32 md:w-36 md:h-36 overflow-hidden rounded-full border-4 ${isLightMode ? 'border-gray-300' : 'border-gray-700'} shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300`}>
               <NextImage
-                height="80"
-                width="80"
-                alt="Avatar"
+                height="144"
+                width="144"
+                alt={mentor.name}
                 src={mentor.image}
                 className="h-full w-full object-cover"
               />
             </div>
 
             {/* Mentor Name & Role */}
-            <h3 className="mt-5 text-lg md:text-xl font-semibold">
+            <h3 className={`text-xl md:text-2xl font-bold mb-2 ${isLightMode ? 'text-gray-900' : 'text-white'} text-center`}>
               {mentor.name}
             </h3>
-            <p className={`${isLightMode ? 'text-gray-500' : 'text-gray-400'} text-sm text-center px-4`}>
+            <p className={`${isLightMode ? 'text-gray-600' : 'text-gray-400'} text-sm font-semibold text-center mb-4 uppercase tracking-wide`}>
               {mentor.post}
             </p>
 
             {/* Mentor Description */}
-            <p className={`${isLightMode ? 'text-gray-600' : 'text-gray-300'} font-normal text-sm text-center my-4`}>
+            <p className={`${isLightMode ? 'text-gray-600' : 'text-gray-300'} text-sm text-center leading-relaxed px-2`}>
               {mentor.about}
             </p>
 
             {/* Social Icons */}
-            <div className="flex mt-4 space-x-4">
+            <div className="flex mt-6">
               {mentor.socials.linkedin && (
                 <a
                   href={mentor.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${isLightMode ? 'text-gray-500 hover:text-black' : 'text-gray-400 hover:text-white'} transition`}
+                  className={`${isLightMode ? 'text-gray-600 hover:text-black' : 'text-gray-400 hover:text-white'} transition-colors duration-200 transform hover:scale-125`}
                 >
-                  <AiFillLinkedin size={26} />
+                  <AiFillLinkedin size={28} />
                 </a>
               )}
             </div>
@@ -70,9 +73,9 @@ function Mentor() {
       {/* Back Button at Bottom */}
       <div className="w-full max-w-7xl mt-16">
         <Link href="/">
-          <button className="flex items-center gap-2 text-white border border-white px-4 py-2 rounded-md hover:bg-white hover:text-black transition">
+          <button className={`flex items-center gap-2 ${isLightMode ? 'text-black border-black hover:bg-black hover:text-white' : 'text-white border-white hover:bg-white hover:text-black'} border px-6 py-3 rounded-lg transition-all duration-300 font-medium`}>
             <FaArrowLeft size={18} />
-            <span>Back</span>
+            <span>Back to Home</span>
           </button>
         </Link>
       </div>

@@ -49,10 +49,7 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-3">Products</h3>
           <ul className={`space-y-2 text-sm ${isLightMode ? 'text-gray-600' : 'text-gray-400'}`}>
-            <li><a href="https://iamwonder.in" target="_blank" rel="noopener noreferrer" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Wonder – Adaptive Learning</a></li>
-            <li><a href="/lumen" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Lumen Hub – ERP for Schools</a></li>
-            <li><a href="https://elevenmedia.agency" target="_blank" rel="noopener noreferrer" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Eleven – Media & Branding</a></li>
-            <li><a href="/waffle" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Waffle – Hack Club Network</a></li>
+            <li><a href="https://wonderclassrooms.com" target="_blank" rel="noopener noreferrer" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Wonder – Adaptive Learning</a></li>
           </ul>
         </div>
 
@@ -64,7 +61,8 @@ const Footer = () => {
             <li><a href="/#faq" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>FAQs</a></li>
             <li><a href="/Insight" target="_blank" rel="noopener noreferrer" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Insights</a></li>
             <li><a href="/" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Home</a></li>
-            <li><a href="/contact" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Let’s Talk</a></li>
+            <li><a href="/contact" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Let's Talk</a></li>
+            <li><a href="/investor" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'} font-semibold`}>Partner with Us</a></li>
           </ul>
         </div>
 
@@ -74,10 +72,10 @@ const Footer = () => {
           <p className={`text-sm ${isLightMode ? 'text-gray-600' : 'text-gray-400'}`}>
             We'd love to collaborate or answer your queries. Write to us at{" "}
             <a
-              href="mailto:contact@conatusbharat.com"
-              className="text-blue-400 hover:underline"
+              href="mailto:conatusbharat@gmail.com"
+              className={`${isLightMode ? 'text-gray-700 hover:text-black' : 'text-gray-300 hover:text-white'} hover:underline`}
             >
-              contact@conatusbharat.com
+              conatusbharat@gmail.com
             </a>
           </p>
           <div className={`flex items-center gap-4 mt-4 ${isLightMode ? 'text-gray-700' : 'text-white'}`}>

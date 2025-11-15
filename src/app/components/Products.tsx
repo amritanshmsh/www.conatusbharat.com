@@ -3,93 +3,124 @@ import React from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 
-
 const Products = () => {
   const { theme } = useTheme();
   const isLightMode = theme === 'light';
   return (
-    <section className={`relative overflow-hidden py-16 px-6 md:px-20 ${isLightMode ? 'bg-white text-black' : 'bg-black text-white'}`}>
-      <div className="relative z-10 max-w-7xl mx-auto space-y-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center px-0">What We’re Building</h2>
-        <p className={`text-center max-w-2xl mx-auto mb-8 text-sm sm:text-base ${isLightMode ? 'text-gray-700' : 'text-gray-300'}`}>
-          Conatus Bharat is not a company with products. It’s a movement equipped with tools —
-          to reimagine learning, rebuild schools, and help every child discover who they truly are.
-        </p>
+    <section className={`relative overflow-hidden py-20 md:py-28 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 ${isLightMode ? 'bg-white text-black' : 'bg-black text-white'}`}>
+      <div className="relative z-10 max-w-7xl mx-auto space-y-16">
+        {/* Header */}
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6" style={{fontFamily: 'Antonio, sans-serif'}}>
+            Wonder: Adaptive Learning Platform
+          </h2>
+          <p className={`text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto ${isLightMode ? 'text-gray-700' : 'text-gray-300'}`}>
+            Know everything about your students. Deliver personalized learning that adapts to each child's unique needs.
+          </p>
+        </div>
 
-        {/* Row 1 */}
-        <div className="flex flex-col lg:flex-row gap-4">
-          {/* Wonder Card - 65% */}
-          <Link href="https://iamwonder.in" target="_blank" rel="noopener noreferrer" className={`relative min-h-[16rem] sm:min-h-auto flex-1 basis-2/3 ${isLightMode ? 'bg-[#f5f5f5] border-gray-200 text-black' : 'bg-black border border-white/10 text-white'} rounded-2xl overflow-visible flex group hover:scale-105 transition-transform`}>
-            <div className="p-4 sm:p-8 pr-40 sm:pr-12 flex flex-col justify-start flex-1">
-              <div>
-                <h3 className="text-2xl sm:text-4xl sm:pr-0 font-extrabold mb-2 p">Wonder: Adaptive Learning</h3>
-                <p className={`${isLightMode ? 'text-gray-600' : 'text-gray-400'} mb-3 text-xs sm:text-sm pr-30`}>
-                  Wonder is an AI-powered learning platform that adapts to each student’s pace and behavior. It delivers personalized content, real-time feedback, and cognitive assessments 
-                  ensuring every learner thrives through a dynamic experience.
+        {/* Main Wonder Card */}
+        <div className="relative">
+          <Link 
+            href="https://wonderclassrooms.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className={`group block ${isLightMode ? 'bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-gray-200' : 'bg-gradient-to-br from-gray-900 to-black border-2 border-white/10'} rounded-3xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl`}
+          >
+            <div className="flex flex-col lg:flex-row">
+              {/* Content Section */}
+              <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+                <div className="mb-6">
+                  <span className={`inline-block px-4 py-2 rounded-full text-sm font-semibold ${isLightMode ? 'bg-gray-200 text-gray-800' : 'bg-white/10 text-white border border-white/20'}`}>
+                    For Schools
+                  </span>
+                </div>
+                
+                <h3 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+                  Holistic Student Intelligence
+                </h3>
+                
+                <p className={`text-lg sm:text-xl mb-8 ${isLightMode ? 'text-gray-700' : 'text-gray-300'} leading-relaxed`}>
+                  Wonder integrates <strong className={isLightMode ? 'text-black' : 'text-white'}>everything</strong> you need to understand and support your students: cognitive assessments, learning patterns, behavioral insights, academic performance, and personalized pathways—all in one unified platform.
                 </p>
+
+                {/* Key Features Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                  <div className={`p-4 rounded-xl ${isLightMode ? 'bg-white border border-gray-200' : 'bg-gray-900/50 border border-white/10'}`}>
+                    <h4 className={`font-bold mb-2 ${isLightMode ? 'text-black' : 'text-white'}`}>Adaptive Learning</h4>
+                    <p className={`text-sm ${isLightMode ? 'text-gray-600' : 'text-gray-400'}`}>
+                      AI-powered content that adjusts to each student's pace and learning style
+                    </p>
+                  </div>
+                  <div className={`p-4 rounded-xl ${isLightMode ? 'bg-white border border-gray-200' : 'bg-gray-900/50 border border-white/10'}`}>
+                    <h4 className={`font-bold mb-2 ${isLightMode ? 'text-black' : 'text-white'}`}>Cognitive Assessments</h4>
+                    <p className={`text-sm ${isLightMode ? 'text-gray-600' : 'text-gray-400'}`}>
+                      Deep insights into how students think, learn, and process information
+                    </p>
+                  </div>
+                  <div className={`p-4 rounded-xl ${isLightMode ? 'bg-white border border-gray-200' : 'bg-gray-900/50 border border-white/10'}`}>
+                    <h4 className={`font-bold mb-2 ${isLightMode ? 'text-black' : 'text-white'}`}>Real-Time Analytics</h4>
+                    <p className={`text-sm ${isLightMode ? 'text-gray-600' : 'text-gray-400'}`}>
+                      Comprehensive dashboards showing student progress, strengths, and areas for growth
+                    </p>
+                  </div>
+                  <div className={`p-4 rounded-xl ${isLightMode ? 'bg-white border border-gray-200' : 'bg-gray-900/50 border border-white/10'}`}>
+                    <h4 className={`font-bold mb-2 ${isLightMode ? 'text-black' : 'text-white'}`}>Holistic Integration</h4>
+                    <p className={`text-sm ${isLightMode ? 'text-gray-600' : 'text-gray-400'}`}>
+                      Seamlessly connects academic, behavioral, and cognitive data for complete student profiles
+                    </p>
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                  <span className={`text-sm font-medium ${isLightMode ? 'text-gray-600' : 'text-gray-400'}`}>
+                    Transform how your school understands and educates students →
+                  </span>
+                </div>
+              </div>
+
+              {/* Image Section */}
+              <div className="lg:w-2/5 flex items-center justify-center p-8 lg:p-12 bg-black/50">
+                <div className="relative w-full max-w-md">
+                  <img
+                    src="/assets/Amritansh Mishra-2 Background Removed.png"
+                    alt="Wonder Platform"
+                    className="w-full h-auto object-contain rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
               </div>
             </div>
-            <div className="w-1/3 hidden sm:flex items-end justify-end aspect-square">
-              <img
-                src="/assets/Amritansh Mishra-2 Background Removed.png"
-                alt="Wonder"
-                className="w-full h-full object-cover rounded-lg"
-              />
-            </div>
-            <div className="sm:hidden absolute bottom-0 right-0 w-40 h-40 overflow-visible">
-              <img
-                src="/assets/Amritansh Mishra-2 Background Removed.png"
-                alt="Wonder"
-                className="w-full h-full object-contain rounded-lg"
-              />
-            </div>
-          </Link>
-
-          {/* Lumen Card - 35% */}
-          <Link href="/lumen" className={`basis-1/3 ${isLightMode ? 'bg-[#f5f5f5] border-gray-200 text-black' : 'bg-black border border-white/10 text-white'} rounded-2xl p-4 sm:p-8 flex flex-col items-center text-center justify-between group hover:scale-105 transition-transform`}>
-            <img src="/assets/original-5fa1b76c0e64a7ad334ffb3b38ca7158.png" alt="Lumen Hub" className="w-32 h-32 rounded-full mb-4 object-cover border-2 border-yellow-300" />
-            <h3 className="text-xl sm:text-2xl font-semibold mb-2">Lumen Hub</h3>
-            <p className={`${isLightMode ? 'text-gray-600' : 'text-gray-400'} mb-4`}>Comprehensive School ERP: Attendance, Fees, Transport & Academics.</p>
-            <span className="px-4 py-1 text-xs font-medium text-black bg-yellow-300 rounded-full">Coming Soon</span>
           </Link>
         </div>
 
-        {/* Row 2 */}
-        <div className="flex flex-col lg:flex-row gap-4">
-          {/* Waffle: Hack Club - 35% */}
-          <Link
-            href="/waffle"
-            className={`basis-1/3 ${isLightMode ? 'bg-[#f5f5f5] border-gray-200 text-black' : 'bg-black border border-white/10 text-white'} rounded-2xl overflow-hidden flex group hover:scale-105 transition-transform`}
-          >
-            <div className="flex-1 flex flex-col justify-between p-4 sm:p-8">
-              <div>
-                <h3 className="text-xl sm:text-2xl font-semibold mb-4">Waffle: Hack Club</h3>
-                <p className={`${isLightMode ? 'text-gray-600' : 'text-gray-400'} mb-6`}>
+        {/* Bottom Message */}
+        <div className="text-center">
+          <p className={`text-base sm:text-lg ${isLightMode ? 'text-gray-600' : 'text-gray-400'}`}>
+            Wonder doesn't just track grades—it reveals the whole student. 
+            <span className={isLightMode ? 'text-black font-semibold' : 'text-white font-semibold'}> Know everything. Support everyone.</span>
+          </p>
+        </div>
+
+        {/* Buildwithwaffle Coming Soon */}
+        <div className="relative mt-20">
+          <div className={`group block ${isLightMode ? 'bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-gray-200' : 'bg-gradient-to-br from-gray-900 to-black border-2 border-white/10'} rounded-3xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl opacity-60`}>
+            <div className="flex flex-col lg:flex-row items-center">
+              <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+                <h3 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 leading-tight" style={{fontFamily: 'Antonio, sans-serif'}}>
+                  Buildwithwaffle
+                </h3>
+                <p className={`text-lg sm:text-xl mb-6 ${isLightMode ? 'text-gray-700' : 'text-gray-300'} leading-relaxed`}>
                   A community to hack how students believe in themselves, learn with freedom, and launch what matters.
                 </p>
+                <div className="inline-block">
+                  <span className={`px-6 py-3 rounded-full text-sm font-semibold ${isLightMode ? 'bg-gray-300 text-gray-700' : 'bg-white/10 text-white border border-white/20'}`}>
+                    Coming Soon
+                  </span>
+                </div>
               </div>
             </div>
-          </Link>
-
-          {/* Social Media Marketing - 65% */}
-          <Link href="https://elevenmedia.agency" target="_blank" rel="noopener noreferrer" className={`flex-1 basis-2/3 ${isLightMode ? 'bg-[#f5f5f5] border-gray-200 text-black' : 'bg-black border border-white/10 text-white'} rounded-2xl overflow-hidden flex group hover:scale-105 transition-transform`}>
-            <div className="flex-1 flex flex-col justify-between p-4 sm:p-8">
-              <div>
-                <h3 className="text-xl sm:text-2xl font-semibold mb-4">Social Media Marketing</h3>
-                <p className={`${isLightMode ? 'text-gray-600' : 'text-gray-400'} mb-3`}>
-                  Boost your school's digital presence with targeted campaigns, engaging content, and strategic outreach on leading social media platforms—all managed by our expert team.
-                </p>
-              </div>
-            </div>
-            <div className="w-1/3 flex items-center justify-center overflow-visible">
-              <img
-                src="/assets/original-f580122a5cde3e077ace1aac5ea5335f Background Removed.png"
-                alt="Social Media"
-                className="h-48 sm:h-72 w-full object-cover"
-                style={{ objectPosition: '25% 0' }}
-              />
-            </div>
-          </Link>
+          </div>
         </div>
       </div>
     </section>

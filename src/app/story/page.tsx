@@ -1,115 +1,168 @@
 "use client"
 import React from "react";
-import { motion } from "framer-motion";
-import { FaLightbulb, FaRocket, FaUsers, FaSchool } from "react-icons/fa";
-
-const fadeIn = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1, transition: { duration: 0.8, ease: "easeInOut" } },
-};
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeInOut" } },
-};
-
-const zoomIn = {
-  initial: { opacity: 0, scale: 0.8 },
-  animate: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
-};
+import { useTheme } from "next-themes";
+import Link from "next/link";
+import { FaArrowLeft } from "react-icons/fa6";
+import "../components/antonio-font.css";
 
 export default function StoryPage() {
+  const { theme } = useTheme();
+  const isLightMode = theme === 'light';
+
   return (
-    <motion.section
-      className="bg-black text-white px-6 py-24 relative overflow-hidden"
-      variants={fadeIn}
-      initial="initial"
-      animate="animate"
-    >
-      {/* Dotted Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none z-0" />
+    <section className={`${isLightMode ? 'bg-white text-black' : 'bg-black text-white'} py-20 md:py-28 px-4 sm:px-6 md:px-8 lg:px-12 relative overflow-hidden`}>
+      {/* Subtle background pattern */}
+      <div className={`absolute inset-0 opacity-[0.015] ${isLightMode ? 'bg-black' : 'bg-white'}`}>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,currentColor_1px,transparent_1px)] bg-[length:50px_50px]"></div>
+      </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto space-y-32">
-        {/* Section 1: Story */}
-        <motion.div className="grid md:grid-cols-1 gap-16" variants={fadeInUp}>
-          <div className="text-center md:text-left">
-            <motion.h2
-              className="font-bebas-neue text-5xl md:text-7xl mb-10 tracking-wide text-shadow-lg"
-              variants={fadeInUp}
-              initial="initial"
-              animate="animate"
-              transition={{ delay: 0.2 }}
+      <div className="relative z-10 max-w-5xl mx-auto space-y-16 md:space-y-24">
+        {/* Header with "Own Tomorrow" and Explanation */}
+        <div className="space-y-8">
+          <div className="space-y-6">
+            <div className={`w-24 h-[1px] ${isLightMode ? 'bg-gray-400' : 'bg-gray-500'}`}></div>
+            <h1 
+              className="text-[clamp(3rem,12vw,8rem)] sm:text-[clamp(4rem,10vw,7rem)] font-extrabold uppercase tracking-tight leading-[0.9]"
+              style={{
+                fontFamily: 'Antonio, sans-serif', 
+                letterSpacing: '-0.06em'
+              }}
             >
-              The <span className="text-white">Story</span>
-            </motion.h2>
-            <motion.div className="space-y-8" variants={fadeInUp} transition={{ delay: 0.4 }}>
-              <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-                The story of Conatus Bharat is the story of <strong className="text-white">countless children</strong> who were steered into traditional career paths,
-                not because of their potential, but due to a lack of understanding of their unique talents and passions.
-              </p>
-              <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-                It was born from the belief that every child is inherently gifted, but not everyone is meant to excel at everything.
-                Recognizing this, <strong className="text-white">Conatus Bharat was created to help children discover their true potential</strong>,
-                explore unconventional paths, and become exceptionally good at what they are naturally inclined toward.
-              </p>
-              <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-                This realization—that <strong className="text-white">talent needs direction, not conformity</strong>—led to the formation of Conatus Bharat,
-                empowering students and schools to break free from traditional molds and truly own tomorrow.
-              </p>
-            </motion.div>
+              &ldquo;OWN TOMORROW&rdquo;
+            </h1>
           </div>
-        </motion.div>
-
-        {/* Divider */}
-        <div className="w-full h-[2px] bg-gradient-to-r from-gray-800 via-white to-gray-800 bg-opacity-20"></div>
-
-        {/* Section 2: Tagline Banner */}
-        <motion.div className="w-full text-center py-16 rounded-lg bg-black bg-opacity-10 backdrop-filter backdrop-blur-md shadow-lg" variants={zoomIn}>
-          <motion.h2
-            className="font-bebas-neue text-6xl md:text-8xl tracking-wide text-white drop-shadow-xl"
-            style={{ textShadow: '1px 1px 2px rgba(255, 255, 255, 0.1)' }}
-          >
-            “Own <span className="text-gray-400">Tomorrow</span>”
-          </motion.h2>
-          <motion.p className="mt-4 text-lg text-gray-400" variants={fadeInUp} transition={{ delay: 0.2 }}>
-            More than a tagline, it's the future we're building, together.
-          </motion.p>
-        </motion.div>
-
-        {/* Divider with Icons */}
-        <div className="flex items-center justify-center space-x-4 py-8">
-          <div className="h-[2px] w-1/4 bg-gray-700"></div>
-          <FaLightbulb className="text-gray-500 text-xl" />
-          <FaUsers className="text-gray-400 text-xl" />
-          <FaRocket className="text-gray-400 text-xl" />
-          <FaSchool className="text-gray-400 text-xl" />
-          <div className="h-[2px] w-1/4 bg-gray-700"></div>
+          
+          {/* Tagline Description */}
+          <div className={`max-w-3xl space-y-5 text-lg md:text-xl leading-relaxed ${isLightMode ? 'text-gray-700' : 'text-gray-300'}`}>
+            <p>
+              Tomorrow belongs to those who understand themselves. To those who embrace who they are. To those who choose the path that matches their strengths.
+            </p>
+            <p>
+              That is why Conatus Bharat exists: to help every student, every school, and every learning journey—own tomorrow.
+            </p>
+          </div>
         </div>
 
-        {/* Section 3: Mission */}
-        <motion.div className="grid md:grid-cols-2 gap-20" variants={fadeInUp} transition={{ delay: 0.3 }}>
-          <div className="p-8 rounded-lg bg-[#111] border border-gray-700">
-            <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
-              <FaUsers className="mr-2" /> For Students
-            </h3>
-            <p className="text-lg text-gray-400 leading-relaxed">
-              We are dedicated to empowering children by providing them with the tools, insights, and encouragement
-              to discover their unique talents and chart their own extraordinary paths. Our mission is to instill
-              the confidence to not just dream, but to actively shape their futures.
+        {/* Main Story Content */}
+        <div className="space-y-12 md:space-y-16">
+          {/* Opening Paragraph */}
+          <div className={`space-y-6 text-lg md:text-xl leading-relaxed ${isLightMode ? 'text-gray-700' : 'text-gray-300'}`}>
+            <p>
+              The story of Conatus Bharat is the story of <span className={`${isLightMode ? 'text-black' : 'text-white'} font-medium`}>countless children</span> who were guided into traditional careers—not because they weren't capable of more, but because no one helped them understand their unique gifts, strengths, and passions.
+            </p>
+            
+            <p>
+              For years, students have been measured by a narrow definition of success.
             </p>
           </div>
-          <div className="p-8 rounded-lg bg-[#111] border border-gray-700">
-            <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
-              <FaSchool className="mr-2" /> For Schools
-            </h3>
-            <p className="text-lg text-gray-400 leading-relaxed">
-              We partner with educational institutions to foster environments that embrace individuality and future-forward learning.
-              Our goal is to help schools evolve into dynamic centers that not only recognize diverse potentials but also
-              equip students with the skills needed to thrive in tomorrow's world.
+          
+          {/* Visual break with highlighted text */}
+          <div className={`${isLightMode ? 'bg-gray-50/80 border-gray-200' : 'bg-gray-900/40 border-white/10'} border rounded-3xl p-8 md:p-10 space-y-5 backdrop-blur-sm`}>
+            <div className={`space-y-4 pl-6 border-l-2 ${isLightMode ? 'border-gray-400' : 'border-white/30'}`}>
+              <p className={`text-lg md:text-xl ${isLightMode ? 'text-gray-800' : 'text-gray-200'}`}>If they struggled in math, they were considered weak.</p>
+              <p className={`text-lg md:text-xl ${isLightMode ? 'text-gray-800' : 'text-gray-200'}`}>If they excelled in creativity, it was labeled a hobby.</p>
+              <p className={`text-lg md:text-xl ${isLightMode ? 'text-gray-800' : 'text-gray-200'}`}>If they explored beyond the syllabus, it was discouraged.</p>
+            </div>
+          </div>
+          
+          {/* Key Quote Section */}
+          <div className="space-y-6">
+            <p className={`text-xl md:text-2xl ${isLightMode ? 'text-gray-800' : 'text-gray-200'} font-medium`}>
+              But the truth is simple:
+            </p>
+            
+            <div className={`${isLightMode ? 'bg-gradient-to-br from-gray-50 to-white border-gray-200' : 'bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10'} border-2 rounded-3xl p-10 md:p-12 shadow-lg`}>
+              <p className={`${isLightMode ? 'text-black' : 'text-white'} text-2xl md:text-3xl lg:text-4xl font-normal leading-tight`}>
+                &ldquo;Every child is gifted—just not in the same way.&rdquo;
+              </p>
+            </div>
+          </div>
+          
+          {/* Main Content */}
+          <div className={`space-y-8 text-lg md:text-xl leading-relaxed ${isLightMode ? 'text-gray-700' : 'text-gray-300'}`}>
+            <p>
+              Conatus Bharat was built to change this reality.
+            </p>
+            
+            <p>
+              We believe that <span className={`${isLightMode ? 'text-black' : 'text-white'} font-medium`}>&ldquo;talent needs direction, not conformity&rdquo;</span>, and that children deserve an education that adapts to them—not the other way around.
+            </p>
+            
+            <p>
+              This belief sparked the creation of Conatus Bharat—an ecosystem designed to help children:
+            </p>
+            
+            <div className={`${isLightMode ? 'bg-gray-50/80 border-gray-200' : 'bg-gray-900/40 border-white/10'} border rounded-3xl p-8 md:p-10 backdrop-blur-sm`}>
+              <ul className="space-y-5 pl-6 list-disc list-outside">
+                <li className={`text-lg md:text-xl ${isLightMode ? 'text-gray-800' : 'text-gray-200'}`}>Discover who they truly are</li>
+                <li className={`text-lg md:text-xl ${isLightMode ? 'text-gray-800' : 'text-gray-200'}`}>Understand their natural abilities</li>
+                <li className={`text-lg md:text-xl ${isLightMode ? 'text-gray-800' : 'text-gray-200'}`}>Explore unconventional paths</li>
+                <li className={`text-lg md:text-xl ${isLightMode ? 'text-gray-800' : 'text-gray-200'}`}>Become exceptional in what they're inclined toward</li>
+              </ul>
+            </div>
+            
+            <p className="text-xl md:text-2xl leading-relaxed">
+              We empower students and schools to break free from rigid, outdated systems and truly transform education.
             </p>
           </div>
-        </motion.div>
+        </div>
+
+        {/* Divider */}
+        <div className={`${isLightMode ? 'border-gray-200' : 'border-gray-700'} border-b w-full`}></div>
+
+        {/* For Students and For Schools - Enhanced Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          {/* For Students */}
+          <div className={`${isLightMode ? 'bg-gradient-to-br from-gray-50 to-white border-gray-200' : 'bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10'} border-2 rounded-3xl p-8 md:p-10 space-y-6 shadow-lg hover:shadow-xl transition-shadow duration-300`}>
+            <h2 
+              className="text-2xl md:text-3xl font-semibold"
+              style={{fontFamily: 'Antonio, sans-serif', fontWeight: 500}}
+            >
+              For Students
+            </h2>
+            
+            <div className="space-y-4">
+              <h3 className={`text-lg md:text-xl font-medium ${isLightMode ? 'text-black' : 'text-white'}`}>
+                Discover Who You Are
+              </h3>
+              
+              <p className={`${isLightMode ? 'text-gray-700' : 'text-gray-300'} text-base md:text-lg leading-relaxed`}>
+                Every child carries unique potential. Through personalized insights and adaptive learning, we help children recognize their abilities and shape their own extraordinary futures.
+              </p>
+            </div>
+          </div>
+
+          {/* For Schools */}
+          <div className={`${isLightMode ? 'bg-gradient-to-br from-gray-50 to-white border-gray-200' : 'bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10'} border-2 rounded-3xl p-8 md:p-10 space-y-6 shadow-lg hover:shadow-xl transition-shadow duration-300`}>
+            <h2 
+              className="text-2xl md:text-3xl font-semibold"
+              style={{fontFamily: 'Antonio, sans-serif', fontWeight: 500}}
+            >
+              For Schools
+            </h2>
+            
+            <div className="space-y-4">
+              <h3 className={`text-lg md:text-xl font-medium ${isLightMode ? 'text-black' : 'text-white'}`}>
+                Build Future-Ready Learning Ecosystems
+              </h3>
+              
+              <p className={`${isLightMode ? 'text-gray-700' : 'text-gray-300'} text-base md:text-lg leading-relaxed`}>
+                We partner with schools to create learning environments that recognize diverse talents, encourage personalized pathways, and prepare students not just for exams—but for life.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Back Button */}
+        <div className="w-full mt-16">
+          <Link href="/">
+            <button className={`flex items-center gap-2 ${isLightMode ? 'text-black border-black hover:bg-black hover:text-white' : 'text-white border-white hover:bg-white hover:text-black'} border px-6 py-3 rounded-lg transition-all duration-300 font-medium`}>
+              <FaArrowLeft size={18} />
+              <span>Back to Home</span>
+            </button>
+          </Link>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

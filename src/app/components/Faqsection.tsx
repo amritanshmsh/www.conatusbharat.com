@@ -8,24 +8,24 @@ gsap.registerPlugin(ScrollTrigger);
 
 const faqData = [
   {
-    question: "What is Conatus Bharat really about?",
-    answer: "Conatus Bharat is a movement to transform education — to help children discover who they are, not just what they can memorize. We build tools that adapt to learners, not the other way around.",
-  },
-  {
-    question: "Why are you doing this?",
-    answer: "Because we’ve all seen how outdated the system is. And we believe children deserve more — more curiosity, more creativity, more choice. Conatus is our way of rebuilding education from the inside out.",
-  },
-  {
-    question: "What makes you different from other EdTech startups?",
-    answer: "We're not chasing the next app download. We care about long-term transformation — by integrating psychometrics, adaptive learning, and school support, all under one roof.",
-  },
-  {
     question: "What is Wonder?",
-    answer: "Wonder is our flagship platform — an adaptive assessment system that maps how a child thinks, learns, and grows. Visit <a href='https://iamwonder.in' class='text-white underline' target='_blank' rel='noopener noreferrer'>iamwonder.in</a> to explore.",
+    answer: "Wonder is a holistic learning platform that helps every student understand who they truly are — their strengths, skills, interests, and learning style — using adaptive learning and AI analysis.",
   },
   {
-    question: "How do you help schools today?",
-    answer: "We offer everything from learning systems to smart ERP to school storytelling through social media — all built to support the next generation of learners and educators.",
+    question: "How is Wonder different from other learning apps?",
+    answer: "Unlike traditional apps that teach the same way to everyone, Wonder goes deep, not broad, offering personalized education, skill analysis, and personality insights for each student.",
+  },
+  {
+    question: "How does Wonder help students discover their strengths?",
+    answer: "Wonder studies how students learn, behave, and perform across subjects and skills. It creates a Student Identity Profile that highlights strengths, weaknesses, skills, and recommended learning paths.",
+  },
+  {
+    question: "What is the mission of Conatus Bharat Education Pvt Ltd?",
+    answer: "Our mission is simple:<br /><br />To ensure every student knows who they are — and to help them work towards it.",
+  },
+  {
+    question: "Why was Conatus Bharat created?",
+    answer: "Because most students don't know their strengths or what to explore. Conatus Bharat was built to solve the root cause — helping students fall in love with learning by understanding themselves, not by forcing one-size-fits-all education.",
   },
 ];
 
@@ -95,7 +95,15 @@ const FaqSection: React.FC = () => {
               </span>
             </button>
             <div className="faq-content overflow-hidden mt-2 h-0 opacity-0">
-              <p className={`pt-2 text-xs md:text-sm ${isLightMode ? 'text-gray-600' : 'text-gray-400'}`} dangerouslySetInnerHTML={{ __html: faq.answer }} />
+              <p 
+                className={`pt-2 text-xs md:text-sm ${isLightMode ? 'text-gray-600' : 'text-gray-400'}`} 
+                dangerouslySetInnerHTML={{ 
+                  __html: faq.answer.replace(
+                    /class='underline'/g, 
+                    `class='underline ${isLightMode ? 'text-gray-700 hover:text-black' : 'text-gray-300 hover:text-white'}'`
+                  )
+                }} 
+              />
             </div>
           </div>
         ))}

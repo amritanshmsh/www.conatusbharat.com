@@ -3,9 +3,10 @@ import FaqSection from "./components/Faqsection";
 import FinalSection from "./components/10.FinalSection";
 import ForSchool from "./components/ForSchool";
 import Foundernote from "./components/Foundernote";
-import Hero from "./components/Hero";
 import Products from "./components/Products";
 import Storyline from "./components/Storyline";
+import Homepage from "./components/Homepage";
+import WhySchools from "./components/WhySchools";
 
 
 export default function Home() {
@@ -13,9 +14,10 @@ export default function Home() {
     <>
       <div>
       
-        <Hero />
+        <Homepage />
         <Aboutus />
         <Products />
+        <WhySchools />
         <Foundernote />
 {/* 
         <ForSchool /> */}
