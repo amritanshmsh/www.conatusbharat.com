@@ -11,13 +11,11 @@ export default function StoryPage() {
 
   return (
     <section className={`${isLightMode ? 'bg-white text-black' : 'bg-black text-white'} py-20 md:py-28 px-4 sm:px-6 md:px-8 lg:px-12 relative overflow-hidden`}>
-      {/* Subtle background pattern */}
       <div className={`absolute inset-0 opacity-[0.015] ${isLightMode ? 'bg-black' : 'bg-white'}`}>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,currentColor_1px,transparent_1px)] bg-[length:50px_50px]"></div>
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto space-y-16 md:space-y-24">
-        {/* Header with "Own Tomorrow" and Explanation */}
         <div className="space-y-8">
           <div className="space-y-6">
             <div className={`w-24 h-[1px] ${isLightMode ? 'bg-gray-400' : 'bg-gray-500'}`}></div>
@@ -32,7 +30,6 @@ export default function StoryPage() {
             </h1>
           </div>
           
-          {/* Tagline Description */}
           <div className={`max-w-3xl space-y-5 text-lg md:text-xl leading-relaxed ${isLightMode ? 'text-gray-700' : 'text-gray-300'}`}>
             <p>
               Tomorrow belongs to those who understand themselves. To those who embrace who they are. To those who choose the path that matches their strengths.
@@ -43,9 +40,7 @@ export default function StoryPage() {
           </div>
         </div>
 
-        {/* Main Story Content */}
         <div className="space-y-12 md:space-y-16">
-          {/* Opening Paragraph */}
           <div className={`space-y-6 text-lg md:text-xl leading-relaxed ${isLightMode ? 'text-gray-700' : 'text-gray-300'}`}>
             <p>
               The story of Conatus Bharat is the story of <span className={`${isLightMode ? 'text-black' : 'text-white'} font-medium`}>countless children</span> who were guided into traditional careers—not because they weren't capable of more, but because no one helped them understand their unique gifts, strengths, and passions.
@@ -56,7 +51,6 @@ export default function StoryPage() {
             </p>
           </div>
           
-          {/* Visual break with highlighted text */}
           <div className={`${isLightMode ? 'bg-gray-50/80 border-gray-200' : 'bg-gray-900/40 border-white/10'} border rounded-3xl p-8 md:p-10 space-y-5 backdrop-blur-sm`}>
             <div className={`space-y-4 pl-6 border-l-2 ${isLightMode ? 'border-gray-400' : 'border-white/30'}`}>
               <p className={`text-lg md:text-xl ${isLightMode ? 'text-gray-800' : 'text-gray-200'}`}>If they struggled in math, they were considered weak.</p>
@@ -65,7 +59,6 @@ export default function StoryPage() {
             </div>
           </div>
           
-          {/* Key Quote Section */}
           <div className="space-y-6">
             <p className={`text-xl md:text-2xl ${isLightMode ? 'text-gray-800' : 'text-gray-200'} font-medium`}>
               But the truth is simple:
@@ -78,7 +71,6 @@ export default function StoryPage() {
             </div>
           </div>
           
-          {/* Main Content */}
           <div className={`space-y-8 text-lg md:text-xl leading-relaxed ${isLightMode ? 'text-gray-700' : 'text-gray-300'}`}>
             <p>
               Conatus Bharat was built to change this reality.
@@ -107,12 +99,9 @@ export default function StoryPage() {
           </div>
         </div>
 
-        {/* Divider */}
         <div className={`${isLightMode ? 'border-gray-200' : 'border-gray-700'} border-b w-full`}></div>
 
-        {/* For Students and For Schools - Enhanced Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {/* For Students */}
           <div className={`${isLightMode ? 'bg-gradient-to-br from-gray-50 to-white border-gray-200' : 'bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10'} border-2 rounded-3xl p-8 md:p-10 space-y-6 shadow-lg hover:shadow-xl transition-shadow duration-300`}>
             <h2 
               className="text-2xl md:text-3xl font-semibold"
@@ -132,7 +121,6 @@ export default function StoryPage() {
             </div>
           </div>
 
-          {/* For Schools */}
           <div className={`${isLightMode ? 'bg-gradient-to-br from-gray-50 to-white border-gray-200' : 'bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10'} border-2 rounded-3xl p-8 md:p-10 space-y-6 shadow-lg hover:shadow-xl transition-shadow duration-300`}>
             <h2 
               className="text-2xl md:text-3xl font-semibold"
@@ -153,7 +141,6 @@ export default function StoryPage() {
           </div>
         </div>
 
-        {/* Back Button */}
         <div className="w-full mt-16">
           <Link href="/">
             <button className={`flex items-center gap-2 ${isLightMode ? 'text-black border-black hover:bg-black hover:text-white' : 'text-white border-white hover:bg-white hover:text-black'} border px-6 py-3 rounded-lg transition-all duration-300 font-medium`}>

@@ -34,18 +34,18 @@ const Footer = () => {
       
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
 
-        {/* Company */}
         <div>
           <h3 className="text-lg font-semibold mb-3">Company</h3>
           <ul className={`space-y-2 text-sm ${isLightMode ? 'text-gray-600' : 'text-gray-400'}`}>
             <li><a href="/story" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Our Story</a></li>
+            <li><a href="/team" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Team</a></li>
             <li><a href="/#about" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>The Problem</a></li>
             <li><a href="/press" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Press</a></li>
             <li><a href="/careers" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Careers</a></li>
+            <li><a href="/" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Home</a></li>
           </ul>
         </div>
 
-        {/* Products */}
         <div>
           <h3 className="text-lg font-semibold mb-3">Products</h3>
           <ul className={`space-y-2 text-sm ${isLightMode ? 'text-gray-600' : 'text-gray-400'}`}>
@@ -53,20 +53,16 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Explore */}
         <div>
           <h3 className="text-lg font-semibold mb-3">Explore</h3>
           <ul className={`space-y-2 text-sm ${isLightMode ? 'text-gray-600' : 'text-gray-400'}`}>
-            <li><a href="/mentors" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Mentors</a></li>
             <li><a href="/#faq" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>FAQs</a></li>
-            <li><a href="/Insight" target="_blank" rel="noopener noreferrer" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Insights</a></li>
-            <li><a href="/" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Home</a></li>
+            <li><a href="/nep" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>NEP</a></li>
+            <li><a href="https://medium.com/@amritanshmsh" target="_blank" rel="noopener noreferrer" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Blogs</a></li>
             <li><a href="/contact" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'}`}>Let's Talk</a></li>
-            <li><a href="/investor" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'} font-semibold`}>Partner with Us</a></li>
           </ul>
         </div>
 
-        {/* Contact */}
         <div>
           <h3 className="text-lg font-semibold mb-3">Get in Touch</h3>
           <p className={`text-sm ${isLightMode ? 'text-gray-600' : 'text-gray-400'}`}>
@@ -99,7 +95,6 @@ const Footer = () => {
 
       </div>
 
-      {/* Bottom Copyright and Legal Links */}
       <div className={`mt-10 border-t border-gray-800 pt-6 text-center text-sm ${isLightMode ? 'text-gray-600' : 'text-gray-400'} space-y-2`}>
         <div>
           <a href="/T&C" className={`${isLightMode ? 'hover:text-black' : 'hover:text-white'} transition`}>Terms and Conditions</a>

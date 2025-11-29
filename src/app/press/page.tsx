@@ -22,8 +22,8 @@ const PressPage = () => {
           <p className="text-gray-400 text-sm">
             For media inquiries, interviews, or speaking opportunities, please reach out to:
             <br />
-         a   <a href="mailto:info@conatusbharat.com" className="underline hover:text-white">
-              info@conatusbharat.com
+         a   <a href="mailto:conatusbharat@gmail.com" className="underline hover:text-white">
+              conatusbharat@gmail.com
             </a>
           </p>
         </section>

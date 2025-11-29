@@ -68,7 +68,6 @@ const Storyline: React.FC = () => {
         
 
             <div ref={circlesRef} className="absolute inset-0 z-0 opacity-20">
-                {/* Scattered translucent blue shapes/dots for decorative background */}
                 <div className="circle absolute w-40 h-40 bg-[#00b8ea]/20 rounded-full top-10 left-20"></div>
                 <div className="circle absolute w-24 h-24 bg-[#00b8ea]/20 rounded-full top-1/4 right-16"></div>
                 <div className="circle absolute w-32 h-32 bg-[#00b8ea]/20 rounded-full bottom-20 left-1/3"></div>

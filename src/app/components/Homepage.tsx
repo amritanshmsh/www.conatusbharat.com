@@ -18,8 +18,9 @@ export default function Homepage() {
           </div>
           <div className="w-full flex flex-row items-start justify-between">
             <div className="max-w-2xl text-lg sm:text-xl text-left leading-relaxed mb-4 opacity-0 animate-fadeIn bg-gradient-to-r from-black via-gray-700 to-gray-400 bg-clip-text text-transparent" style={{animationDelay: '0.5s'}}>
-              Conatus Bharat is where <span className="font-bold">curiosity meets community</span>. We don’t just build tools, but nurture human stories. We harness what happens in moments of quiet discovery and connection.<br /><br />
-              A place for <span className="font-bold">makers</span> and <span className="font-bold">dreamers</span> alike—honored, and becoming your best self, unfolding every day.
+              Conatus Bharat is a place where understanding begins.<br /><br />
+              We build ideas and tools that help people grow with clarity, purpose, and curiosity.<br /><br />
+              A place for builders and dreamers — learning, evolving, becoming.
             </div>
             <div className="font-extrabold text-[15vw] sm:text-[11vw] pl-8 opacity-0 animate-fadeIn bg-gradient-to-r from-black via-gray-700 to-gray-400 bg-clip-text text-transparent" style={{fontFamily: 'Antonio, sans-serif', letterSpacing: '-0.06em', animationDelay: '0.7s'}}>
               26

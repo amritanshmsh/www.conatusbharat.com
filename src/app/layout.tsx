@@ -5,9 +5,6 @@ import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-// import Loader from "./Loader";
-
-// import Footer from "@/components/Footer";
 
 const inter = font({ subsets: ["latin"], preload: true });
 
@@ -64,7 +61,6 @@ export default function RootLayout({
       </Head>
       <body suppressHydrationWarning className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {/* <Loader /> */}
           <header>
             <Navbar />
           </header>

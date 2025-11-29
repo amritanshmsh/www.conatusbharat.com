@@ -12,7 +12,6 @@
   animation: fadeIn 1.2s ease forwards;
 }
 
-/* Hide scrollbar */
 body::-webkit-scrollbar {
   display: none;
 }
@@ -35,7 +34,6 @@ body {
   flex: 1;
 }
 
-/* Example utility class for primary blue usage */
 .text-primary {
   color: var(--primary-blue);
 }
