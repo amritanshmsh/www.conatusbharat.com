@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import LoopLogo from './LoopLogo';
 
 export default function RoadmapNote() {
   const ref = useRef<HTMLElement>(null);
@@ -28,10 +27,6 @@ export default function RoadmapNote() {
           seen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
         }`}
       >
-        <div className="inline-flex items-center justify-center mb-8">
-          <LoopLogo size={40} tone="iris" spinning />
-        </div>
-
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ink/[0.04] border border-ink/10 mb-6">
           <span className="w-1.5 h-1.5 rounded-full bg-iris" />
           <span className="text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase text-ink/70">
