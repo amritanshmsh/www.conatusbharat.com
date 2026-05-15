@@ -6,6 +6,7 @@ import Homepage from './components/Homepage';
 import Marquee from './components/Marquee';
 import Pillars from './components/Pillars';
 import Products from './components/Products';
+import RoadmapNote from './components/RoadmapNote';
 
 export default function Home() {
   return (
@@ -14,11 +15,10 @@ export default function Home() {
 
       <Marquee
         items={[
+          'Every child is gifted',
+          'Just not in the same way',
           'See the student',
-          'Adapt to them',
-          'Lift the teacher',
-          'Build belief',
-          'Race ko choro',
+          'Adapt — not average',
           'Wonder',
         ]}
         tone="ink"
@@ -26,6 +26,7 @@ export default function Home() {
 
       <Aboutus />
       <Products />
+      <RoadmapNote />
 
       <Marquee
         items={[

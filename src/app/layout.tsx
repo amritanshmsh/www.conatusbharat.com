@@ -20,14 +20,14 @@ const antonio = Antonio({
 });
 
 export const metadata: Metadata = {
-  title: 'Conatus Bharat — Understanding begins here',
+  title: 'Conatus Bharat — Own Tomorrow',
   description:
-    'Most EdTech tells children what to learn. Conatus Bharat builds tools that understand how they learn.',
-  keywords: 'education, NEP, learning, Wonder, ConatusBharat, India, schools',
+    'Conatus Bharat builds Wonder — an adaptive learning platform that helps schools see every student. Grades 3 to 12, NEP-aligned.',
+  keywords: 'education, NEP, learning, Wonder, ConatusBharat, India, schools, CBSE',
   openGraph: {
-    title: 'Conatus Bharat — Understanding begins here',
+    title: 'Conatus Bharat — Own Tomorrow',
     description:
-      'Most EdTech tells children what to learn. We built Wonder to understand how they learn.',
+      'Conatus Bharat builds Wonder — an adaptive learning platform that helps schools see every student. Grades 3 to 12, NEP-aligned.',
     url: 'https://www.conatusbharat.com',
     siteName: 'Conatus Bharat',
     locale: 'en_IN',

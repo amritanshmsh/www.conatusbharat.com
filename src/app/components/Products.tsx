@@ -22,7 +22,6 @@ type Subject = {
   chapters: number;
   topics: number;
   bg: string;
-  fg: string;
   icon: React.ReactNode;
   metrics: { label: string; value: number; color: string }[];
   trait: string;
@@ -36,7 +35,6 @@ const subjects: Subject[] = [
     chapters: 3,
     topics: 10,
     bg: 'bg-pastel-blue',
-    fg: 'text-ink',
     icon: <Calculator size={18} />,
     metrics: [
       { label: 'Reasoning', value: 86, color: 'bg-iris' },
@@ -52,7 +50,6 @@ const subjects: Subject[] = [
     chapters: 2,
     topics: 5,
     bg: 'bg-pastel-yellow',
-    fg: 'text-ink',
     icon: <BookOpen size={18} />,
     metrics: [
       { label: 'Comprehension', value: 92, color: 'bg-iris' },
@@ -68,7 +65,6 @@ const subjects: Subject[] = [
     chapters: 2,
     topics: 5,
     bg: 'bg-pastel-peach',
-    fg: 'text-ink',
     icon: <Globe size={18} />,
     metrics: [
       { label: 'Critical thinking', value: 74, color: 'bg-iris' },
@@ -84,7 +80,6 @@ const subjects: Subject[] = [
     chapters: 1,
     topics: 2,
     bg: 'bg-pastel-pink',
-    fg: 'text-ink',
     icon: <Languages size={18} />,
     metrics: [
       { label: 'Reading', value: 88, color: 'bg-iris' },
@@ -111,7 +106,7 @@ export default function Products() {
 
   return (
     <section
-      id="products"
+      id="wonder"
       ref={ref}
       className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-10 bg-paper text-ink overflow-hidden"
     >
@@ -127,14 +122,13 @@ export default function Products() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-iris/10 border border-iris/20 mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-iris" />
               <span className="text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase text-iris">
-                What we build
+                What we're building right now
               </span>
             </div>
             <h2
               className="font-display font-bold leading-[0.95] tracking-[-0.03em]"
               style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)' }}
             >
-              Meet{' '}
               <span className="relative inline-block">
                 <span className="text-iris">Wonder</span>
                 <span className="absolute -bottom-2 left-0 right-0 h-2 bg-iris/20 rounded-full -z-0" />
@@ -146,9 +140,12 @@ export default function Products() {
           </div>
           <div className="lg:col-span-5 lg:pb-2">
             <p className="text-base sm:text-lg leading-relaxed text-ink/70">
-              Wonder doesn't just track marks — it builds a Student Identity
-              Profile, adapts every lesson, and gives teachers the clarity they
-              need to teach better.
+              Wonder helps schools see every student — how they learn, where
+              they're stuck, and what they're becoming.
+            </p>
+            <p className="mt-3 text-sm text-ink/55">
+              Adaptive practice from Grade 3. Career diagnostic from Grade 8.
+              Built for CBSE. NEP 2020 aligned. NCERT curriculum.
             </p>
             <Link
               href="https://wonderclassrooms.com"
@@ -156,19 +153,22 @@ export default function Products() {
               rel="noopener noreferrer"
               className="mt-5 group inline-flex items-center gap-1.5 text-sm font-semibold text-ink hover:text-iris transition"
             >
-              wonderclassrooms.com
-              <ArrowUpRight size={14} strokeWidth={2.5} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              Explore Wonder
+              <ArrowUpRight
+                size={14}
+                strokeWidth={2.5}
+                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+              />
             </Link>
           </div>
         </div>
 
-        {/* Interactive Wonder dashboard preview */}
+        {/* Interactive Wonder dashboard */}
         <div
           className={`relative rounded-[2rem] overflow-hidden bg-iris border border-iris-700 transition-all duration-700 ${
             seen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
-          {/* Top bar */}
           <div className="flex items-center justify-between px-6 sm:px-8 pt-6 sm:pt-8 text-paper">
             <div className="flex items-center gap-2 text-xs font-medium">
               <span className="px-2.5 py-1 rounded-full bg-paper/15 border border-paper/20 inline-flex items-center gap-1.5">
@@ -191,7 +191,6 @@ export default function Products() {
             </div>
           </div>
 
-          {/* Greeting + active subject */}
           <div className="px-6 sm:px-8 pt-8 pb-6 text-paper">
             <div
               className="font-display font-bold leading-none mb-3"
@@ -208,9 +207,7 @@ export default function Products() {
             </div>
           </div>
 
-          {/* Body — split */}
           <div className="px-4 sm:px-6 lg:px-8 pb-8 grid grid-cols-1 lg:grid-cols-12 gap-4">
-            {/* Subject picker (interactive — surprise: click to swap) */}
             <div className="lg:col-span-7">
               <div className="flex items-center justify-between mb-3 text-paper/80 text-xs font-semibold tracking-widest uppercase">
                 <span>My subjects</span>
@@ -223,7 +220,7 @@ export default function Products() {
                     <button
                       key={s.key}
                       onClick={() => setActive(s)}
-                      className={`group text-left rounded-2xl px-4 py-3.5 ${s.bg} ${s.fg} relative overflow-hidden transition-all duration-300 ${
+                      className={`group text-left rounded-2xl px-4 py-3.5 ${s.bg} text-ink relative overflow-hidden transition-all duration-300 ${
                         isActive
                           ? 'ring-2 ring-paper scale-[1.015] shadow-xl'
                           : 'hover:scale-[1.01] hover:shadow-lg ring-1 ring-ink/5'
@@ -238,7 +235,9 @@ export default function Products() {
                         </div>
                         <ArrowUpRight
                           size={14}
-                          className={`transition-transform ${isActive ? 'rotate-0' : 'group-hover:rotate-12'}`}
+                          className={`transition-transform ${
+                            isActive ? 'rotate-0' : 'group-hover:rotate-12'
+                          }`}
                         />
                       </div>
                       <div className="mt-2 text-[11px] text-ink/60">
@@ -250,7 +249,6 @@ export default function Products() {
               </div>
             </div>
 
-            {/* Insights panel (changes when subject changes) */}
             <div className="lg:col-span-5">
               <div className="rounded-2xl bg-paper text-ink p-5 h-full flex flex-col">
                 <div className="flex items-center justify-between mb-4">
@@ -298,43 +296,21 @@ export default function Products() {
           </div>
         </div>
 
-        {/* Coming soon — bento */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
-          {[
-            {
-              title: 'School OS',
-              tag: 'For institutions',
-              bg: 'bg-pastel-mint',
-              desc: 'A unified ecosystem for schools, students, and parents to showcase journeys and growth in one place.',
-            },
-            {
-              title: 'Build with Waffle',
-              tag: 'For learners',
-              bg: 'bg-pastel-lilac',
-              desc: 'A community where students hack how they believe in themselves, learn with freedom, and launch what matters.',
-            },
-          ].map((p) => (
-            <div
-              key={p.title}
-              className={`group relative rounded-3xl ${p.bg} text-ink p-7 sm:p-8 overflow-hidden border border-ink/5`}
-            >
-              <div className="flex items-center justify-between mb-6">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-ink text-paper text-[10px] font-bold tracking-widest uppercase">
-                  Coming soon
-                </span>
-                <span className="text-[11px] font-medium text-ink/60 uppercase tracking-widest">
-                  {p.tag}
-                </span>
-              </div>
-              <h3 className="font-display font-bold text-3xl sm:text-4xl mb-3">{p.title}</h3>
-              <p className="text-sm sm:text-base text-ink/70 max-w-md">{p.desc}</p>
-              <div className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-ink/70 group-hover:text-iris transition">
-                Notify me
-                <ArrowUpRight size={14} strokeWidth={2.5} />
-              </div>
-              <div className="absolute -bottom-12 -right-12 w-44 h-44 rounded-full border-[10px] border-ink/10" />
-            </div>
-          ))}
+        {/* Single CTA */}
+        <div className="mt-8 flex justify-center">
+          <Link
+            href="https://wonderclassrooms.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-ink text-paper text-sm font-semibold hover:bg-iris transition-all duration-300 hover:scale-105"
+          >
+            Explore Wonder
+            <ArrowUpRight
+              size={14}
+              strokeWidth={2.5}
+              className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </Link>
         </div>
       </div>
     </section>

@@ -6,24 +6,20 @@ import { Plus, ArrowUpRight } from 'lucide-react';
 
 const faqs = [
   {
+    q: 'What is Conatus Bharat?',
+    a: "Conatus Bharat is an education company building tools that help every student understand who they are and what they're inclined toward. Our first product is Wonder — an adaptive learning platform for schools.",
+  },
+  {
     q: 'What is Wonder?',
-    a: "Wonder is a holistic learning platform that helps every student understand who they are — their strengths, skills, interests, and learning style — using adaptive learning and AI analysis.",
-  },
-  {
-    q: 'How is Wonder different from other learning apps?',
-    a: 'Most apps teach the same way to everyone. Wonder goes deep, not broad — personalised education, skill analysis, and personality insights for each student.',
-  },
-  {
-    q: 'How does Wonder help students discover their strengths?',
-    a: "Wonder studies how students learn, behave, and perform across subjects. It builds a Student Identity Profile that highlights strengths, gaps, and recommended paths.",
+    a: 'Wonder is our learning platform for Grades 3 to 12. Adaptive practice from Grade 3. Career diagnostic from Grade 8. NEP-aligned. CBSE curriculum.',
   },
   {
     q: 'What is the mission of Conatus Bharat?',
-    a: 'Simple: ensure every student knows who they are — and help them work towards it.',
+    a: 'To ensure every student knows who they are — and to help them work towards it.',
   },
   {
     q: 'Why was Conatus Bharat created?',
-    a: "Most students don't know their strengths or what to explore. Conatus Bharat exists to solve that root cause — helping students fall in love with learning by understanding themselves.",
+    a: "Because most students don't know their strengths or what to explore. Conatus Bharat exists to help children fall in love with learning by understanding themselves — not by being forced through a one-size-fits-all system.",
   },
 ];
 
@@ -35,7 +31,10 @@ export default function FaqSection() {
       id="faq"
       className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-10 bg-paper text-ink overflow-hidden"
     >
-      <div aria-hidden className="absolute -top-32 -right-32 w-[400px] h-[400px] rounded-full bg-iris/[0.06] blur-3xl" />
+      <div
+        aria-hidden
+        className="absolute -top-32 -right-32 w-[400px] h-[400px] rounded-full bg-iris/[0.06] blur-3xl"
+      />
 
       <div className="relative max-w-5xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12 items-end">
@@ -57,8 +56,8 @@ export default function FaqSection() {
           </div>
           <div className="lg:col-span-5 lg:pb-2">
             <p className="text-base sm:text-lg text-ink/70 leading-relaxed">
-              Everything you'd want to know about Wonder and Conatus Bharat.
-              Still curious? Write to us.
+              The basics about Conatus Bharat and Wonder. Still curious?
+              Write to us — a real person will reply.
             </p>
           </div>
         </div>
@@ -118,7 +117,6 @@ export default function FaqSection() {
           })}
         </div>
 
-        {/* CTA */}
         <div className="mt-10 rounded-3xl bg-pastel-yellow text-ink p-7 sm:p-9 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
           <div>
             <div className="text-[11px] tracking-[0.25em] uppercase text-ink/60 mb-1">

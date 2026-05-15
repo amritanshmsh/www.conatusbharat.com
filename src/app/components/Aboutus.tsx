@@ -1,9 +1,8 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Eye, AlertTriangle, Brain, Sparkles } from 'lucide-react';
 
-const Aboutus = () => {
+export default function Aboutus() {
   const ref = useRef<HTMLElement>(null);
   const [seen, setSeen] = useState(false);
 
@@ -18,7 +17,7 @@ const Aboutus = () => {
 
   return (
     <section
-      id="about"
+      id="belief"
       ref={ref}
       className="relative bg-ink text-paper py-24 sm:py-32 px-4 sm:px-6 lg:px-10 overflow-hidden"
     >
@@ -32,108 +31,68 @@ const Aboutus = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12 items-end">
           <div className="lg:col-span-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-5">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pastel-pink/80 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-pastel-pink" />
-              </span>
+              <span className="w-1.5 h-1.5 rounded-full bg-iris-300" />
               <span className="text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase text-paper/70">
-                The Reality
+                Why we exist
               </span>
             </div>
 
             <h2
               className="font-display font-bold leading-[0.95] tracking-[-0.03em]"
-              style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)' }}
+              style={{ fontSize: 'clamp(2.5rem, 6.5vw, 5.5rem)' }}
             >
-              260M children.
+              Every child is gifted.
               <br />
-              <span className="text-paper/40">One rigid system.</span>
+              <span className="text-paper/40">Just not in the same way.</span>
             </h2>
           </div>
           <div className="lg:col-span-4 lg:pb-2">
             <p className="text-base sm:text-lg leading-relaxed text-paper/70">
-              India's classrooms are full. The system is fast. But somewhere
-              along the way, the student became a number.
-            </p>
-            <p className="mt-3 text-iris-300 text-sm font-semibold uppercase tracking-widest">
-              We're here to change that.
+              For years, students have been measured by a narrow definition of
+              success. We're building a different kind of company — one that
+              adapts to the student, not the other way around.
             </p>
           </div>
         </div>
 
-        {/* Bento grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-6 lg:grid-cols-12 auto-rows-[minmax(140px,auto)] gap-4">
-          {/* Big stat card — pastel pink */}
+        {/* Three lines + video */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          {/* Three quiet truth cards */}
           <div
-            className={`sm:col-span-3 lg:col-span-4 rounded-3xl p-6 sm:p-7 bg-pastel-pink text-ink relative overflow-hidden transition-all duration-700 ${
+            className={`lg:col-span-5 grid grid-cols-1 gap-4 transition-all duration-700 ${
               seen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
-            style={{ transitionDelay: '60ms' }}
           >
-            <AlertTriangle size={20} className="opacity-50" />
-            <div
-              className="font-display font-bold leading-none mt-4"
-              style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
-            >
-              93%
-            </div>
-            <div className="mt-2 text-sm font-semibold">
-              don't know their strengths
-            </div>
-            <div className="text-xs text-ink/60 mt-1">by the time they leave school</div>
-            {/* Soft watermark loop */}
-            <div className="absolute -bottom-12 -right-12 w-40 h-40 rounded-full border-[10px] border-ink/10" />
-          </div>
+            {[
+              { line: 'If they struggled in math —', tail: 'they were called weak.' },
+              { line: 'If they excelled in creativity —', tail: 'it was called a hobby.' },
+              { line: 'If they explored beyond the syllabus —', tail: 'it was discouraged.' },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="rounded-2xl bg-white/[0.04] border border-white/10 p-6 hover:bg-white/[0.06] hover:border-white/15 transition"
+              >
+                <div className="text-paper/60 text-sm sm:text-base">{item.line}</div>
+                <div className="text-paper text-base sm:text-lg font-semibold mt-1">
+                  {item.tail}
+                </div>
+              </div>
+            ))}
 
-          {/* Stat — pastel yellow */}
-          <div
-            className={`sm:col-span-3 lg:col-span-4 rounded-3xl p-6 sm:p-7 bg-pastel-yellow text-ink relative overflow-hidden transition-all duration-700 ${
-              seen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}
-            style={{ transitionDelay: '160ms' }}
-          >
-            <Brain size={20} className="opacity-60" />
-            <div
-              className="font-display font-bold leading-none mt-4"
-              style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
-            >
-              1 in 7
-            </div>
-            <div className="mt-2 text-sm font-semibold">
-              has anxiety from school pressure
-            </div>
-            <div className="text-xs text-ink/60 mt-1">a generation of self-doubt</div>
-            <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full border-[8px] border-ink/10" />
-          </div>
-
-          {/* Big stat — iris */}
-          <div
-            className={`sm:col-span-6 lg:col-span-4 rounded-3xl p-6 sm:p-7 bg-iris text-paper relative overflow-hidden transition-all duration-700 ${
-              seen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}
-            style={{ transitionDelay: '260ms' }}
-          >
-            <Eye size={20} className="opacity-80" />
-            <div
-              className="font-display font-bold leading-none mt-4"
-              style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
-            >
-              260M+
-            </div>
-            <div className="mt-2 text-sm font-semibold">students in India</div>
-            <div className="text-xs text-paper/70 mt-1">taught with one rigid system</div>
-            <div className="absolute -bottom-14 -right-14 w-44 h-44 rounded-full border-[10px] border-white/15" />
+            <p className="text-paper/65 text-sm sm:text-base leading-relaxed mt-2">
+              We don't think that's how minds grow. So we're building a
+              different kind of education company.
+            </p>
           </div>
 
           {/* Video — wide */}
           <div
-            className={`sm:col-span-6 lg:col-span-8 rounded-3xl overflow-hidden bg-black relative border border-white/10 transition-all duration-700 ${
+            className={`lg:col-span-7 rounded-3xl overflow-hidden bg-black relative border border-white/10 transition-all duration-700 ${
               seen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
-            style={{ transitionDelay: '360ms', minHeight: 320 }}
+            style={{ transitionDelay: '160ms', minHeight: 320 }}
           >
             <div className="absolute top-4 left-4 z-10 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-iris text-paper text-[10px] font-bold tracking-widest uppercase shadow-lg">
-              <Sparkles size={11} />
               Watch · 2 min
             </div>
             <video
@@ -148,38 +107,8 @@ const Aboutus = () => {
               <source src="/assets/Problem.mp4" type="video/mp4" />
             </video>
           </div>
-
-          {/* Side quote card */}
-          <div
-            className={`sm:col-span-6 lg:col-span-4 rounded-3xl p-7 sm:p-8 bg-white/[0.04] border border-white/10 flex flex-col justify-between transition-all duration-700 ${
-              seen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}
-            style={{ transitionDelay: '460ms' }}
-          >
-            <div>
-              <div
-                className="font-display text-iris-300 mb-3 leading-none"
-                style={{ fontSize: '4rem' }}
-              >
-                "
-              </div>
-              <p className="text-base sm:text-lg leading-relaxed text-paper/85">
-                The same test, the same path, the same finish line — for 260
-                million different minds. That's not education. That's
-                averaging.
-              </p>
-            </div>
-            <div className="mt-6 pt-5 border-t border-white/10 flex items-center justify-between">
-              <span className="text-[11px] tracking-[0.25em] uppercase text-paper/50">
-                The Conatus Brief
-              </span>
-              <span className="text-iris-300 text-sm font-bold">→</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default Aboutus;
+}

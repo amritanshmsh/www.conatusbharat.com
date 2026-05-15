@@ -7,11 +7,10 @@ import { Menu, X, ArrowUpRight } from 'lucide-react';
 import LoopLogo from './LoopLogo';
 
 const links = [
-  { href: '/#about', label: 'Problem' },
-  { href: '/#products', label: 'Wonder' },
-  { href: '/#pillars', label: 'Approach' },
-  { href: '/team', label: 'Team' },
-  { href: '/press', label: 'Press' },
+  { href: '/#wonder', label: 'Wonder' },
+  { href: '/story', label: 'Story' },
+  { href: '/leadership', label: 'Leadership' },
+  { href: '/work-with-us', label: 'Work With Us' },
 ];
 
 export default function Navbar() {

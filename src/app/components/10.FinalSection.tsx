@@ -28,7 +28,6 @@ export default function FinalSection() {
           seen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
-        {/* Decorative loops */}
         <div aria-hidden className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full border-[40px] border-white/10" />
           <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] rounded-full border-[30px] border-white/10" />
@@ -40,7 +39,7 @@ export default function FinalSection() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-paper/10 border border-paper/20 mb-7">
               <span className="w-1.5 h-1.5 rounded-full bg-paper animate-pulse" />
               <span className="text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase text-paper/85">
-                Just the beginning
+                This is just the beginning
               </span>
             </div>
 
@@ -48,14 +47,15 @@ export default function FinalSection() {
               className="font-display font-bold leading-[0.95] tracking-[-0.025em]"
               style={{ fontSize: 'clamp(2.5rem, 7vw, 6rem)' }}
             >
-              Build the future
+              More than a launch
               <br />
-              of learning with us.
+              — a promise.
             </h2>
 
             <p className="mt-6 text-base sm:text-lg text-paper/80 max-w-xl leading-relaxed">
-              Conatus Bharat is more than a launch — it's a promise. To rethink
-              what learning means. To build tools that truly serve children.
+              To rethink what learning means. To build tools that truly serve
+              children. And to partner with those who dare to believe in
+              better.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">
@@ -63,8 +63,12 @@ export default function FinalSection() {
                 href="/contact"
                 className="group inline-flex items-center gap-1.5 px-6 py-3.5 rounded-full bg-paper text-iris text-sm font-bold hover:bg-ink hover:text-paper transition-all duration-300 hover:scale-105 shadow-xl"
               >
-                Bring Conatus to your school
-                <ArrowUpRight size={14} strokeWidth={2.5} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                Talk to us
+                <ArrowUpRight
+                  size={14}
+                  strokeWidth={2.5}
+                  className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
               </Link>
               <Link
                 href="https://wonderclassrooms.com"
@@ -85,23 +89,6 @@ export default function FinalSection() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Trust strip */}
-        <div className="relative border-t border-white/15 px-7 sm:px-12 lg:px-20 py-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-paper/85">
-          {[
-            { v: 'Grades 3–12', l: 'Built for' },
-            { v: 'NCERT', l: 'Aligned to' },
-            { v: 'NEP 2020', l: 'Designed for' },
-            { v: 'India', l: 'Made in' },
-          ].map((s) => (
-            <div key={s.v} className="text-center sm:text-left">
-              <div className="text-[10px] tracking-widest uppercase text-paper/55 mb-0.5">
-                {s.l}
-              </div>
-              <div className="font-display font-bold text-lg sm:text-xl">{s.v}</div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
