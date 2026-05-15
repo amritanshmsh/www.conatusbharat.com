@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import LoopLogo from './LoopLogo';
+import SmartLink from './SmartLink';
 
 const links = [
   { href: '/#wonder', label: 'Wonder' },
@@ -67,7 +68,7 @@ export default function Navbar() {
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-1">
             {links.map((l) => (
-              <Link
+              <SmartLink
                 key={l.label}
                 href={l.href}
                 className={`relative px-3.5 py-1.5 text-sm font-medium rounded-full transition-all duration-300 ${
@@ -77,7 +78,7 @@ export default function Navbar() {
                 }`}
               >
                 {l.label}
-              </Link>
+              </SmartLink>
             ))}
           </div>
 
@@ -117,13 +118,13 @@ export default function Navbar() {
         >
           <div className="rounded-3xl bg-ink/95 backdrop-blur-xl border border-white/10 p-3 space-y-1">
             {links.map((l) => (
-              <Link
+              <SmartLink
                 key={l.label}
                 href={l.href}
                 className="block px-4 py-2.5 rounded-2xl text-sm font-medium text-paper/80 hover:text-paper hover:bg-white/5 transition"
               >
                 {l.label}
-              </Link>
+              </SmartLink>
             ))}
             <Link
               href="/contact"

@@ -18,6 +18,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Anchored sections offset under the fixed nav so #wonder, #faq, etc.
+   don't land hidden behind the floating pill */
+section[id] {
+  scroll-margin-top: 96px;
+}
+
 body {
   min-height: 100vh;
   overflow-x: hidden;

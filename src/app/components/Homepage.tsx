@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import LoopLogo from './LoopLogo';
+import SmartLink from './SmartLink';
 
 export default function Homepage() {
   const heroRef = useRef<HTMLElement>(null);
@@ -76,10 +77,7 @@ export default function Homepage() {
           style={{ fontSize: 'clamp(3.5rem, 13vw, 14rem)' }}
         >
           <span className="block animate-fade-in-up [animation-delay:80ms]">CONATUS</span>
-          <span
-            className="block animate-fade-in-up [animation-delay:200ms]"
-            style={{ marginTop: '-0.06em' }}
-          >
+          <span className="block animate-fade-in-up [animation-delay:200ms] mt-3 sm:mt-4">
             <span>BHARAT</span>
             <span className="inline-block align-top text-iris">.</span>
           </span>
@@ -117,7 +115,7 @@ export default function Homepage() {
             </p>
 
             <div className="flex flex-wrap items-center gap-3">
-              <Link
+              <SmartLink
                 href="/#wonder"
                 className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ink text-paper text-sm font-semibold hover:bg-iris transition-all duration-300 hover:scale-105 glow-iris"
               >
@@ -127,7 +125,7 @@ export default function Homepage() {
                   strokeWidth={2.5}
                   className="transition-transform duration-300 group-hover:translate-x-0.5"
                 />
-              </Link>
+              </SmartLink>
               <Link
                 href="/story"
                 className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full border border-ink/15 text-sm font-semibold text-ink hover:border-iris hover:text-iris transition"
