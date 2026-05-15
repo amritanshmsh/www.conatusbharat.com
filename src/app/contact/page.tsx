@@ -4,7 +4,7 @@ import { ArrowLeft } from 'lucide-react';
 import LoopLogo from '../components/LoopLogo';
 
 export const metadata: Metadata = {
-  title: 'Talk to us — Conatus Bharat',
+  title: 'Talk to us · Conatus Bharat',
   description:
     "We'd love to hear from schools, educators, parents, and anyone curious about Conatus Bharat.",
 };

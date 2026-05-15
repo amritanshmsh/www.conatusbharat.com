@@ -20,14 +20,14 @@ const antonio = Antonio({
 });
 
 export const metadata: Metadata = {
-  title: 'Conatus Bharat — Own Tomorrow',
+  title: 'Conatus Bharat. Own Tomorrow.',
   description:
-    'Conatus Bharat builds Wonder — an adaptive learning platform that helps schools see every student. Grades 3 to 12, NEP-aligned.',
+    'Conatus Bharat builds Wonder, an adaptive learning platform that helps schools see every student. Grades 3 to 12, NEP-aligned.',
   keywords: 'education, NEP, learning, Wonder, ConatusBharat, India, schools, CBSE',
   openGraph: {
-    title: 'Conatus Bharat — Own Tomorrow',
+    title: 'Conatus Bharat. Own Tomorrow.',
     description:
-      'Conatus Bharat builds Wonder — an adaptive learning platform that helps schools see every student. Grades 3 to 12, NEP-aligned.',
+      'Conatus Bharat builds Wonder, an adaptive learning platform that helps schools see every student. Grades 3 to 12, NEP-aligned.',
     url: 'https://www.conatusbharat.com',
     siteName: 'Conatus Bharat',
     locale: 'en_IN',
@@ -35,9 +35,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://www.conatusbharat.com',
-  },
-  icons: {
-    icon: '/favicon.ico',
   },
 };
 

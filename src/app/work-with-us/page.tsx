@@ -4,7 +4,7 @@ import { ArrowLeft } from 'lucide-react';
 import LoopLogo from '../components/LoopLogo';
 
 export const metadata: Metadata = {
-  title: 'Work With Us — Conatus Bharat',
+  title: 'Work With Us · Conatus Bharat',
   description:
     'Applications are currently paused. We are a small team rebuilding before our next round of hiring in 2026.',
 };

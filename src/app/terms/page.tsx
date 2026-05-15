@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import LegalLayout from '../components/LegalLayout';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service — Conatus Bharat',
+  title: 'Terms of Service · Conatus Bharat',
   description:
     'Terms governing the use of conatusbharat.com and services provided by Conatus Bharat Education Pvt. Ltd.',
 };
@@ -72,8 +72,8 @@ export default function TermsPage() {
 
       <Section n="4" title="Intellectual property">
         <p>
-          All content on this website — text, images, design, logos,
-          trademarks — belongs to Conatus Bharat Education Pvt. Ltd. or is
+          All content on this website (text, images, design, logos,
+          trademarks) belongs to Conatus Bharat Education Pvt. Ltd. or is
           used with permission. "Conatus Bharat," "Wonder," and related marks
           are our trademarks (pending registration).
         </p>

@@ -140,7 +140,7 @@ export default function Products() {
           </div>
           <div className="lg:col-span-5 lg:pb-2">
             <p className="text-base sm:text-lg leading-relaxed text-ink/70">
-              Wonder helps schools see every student — how they learn, where
+              Wonder helps schools see every student. How they learn, where
               they're stuck, and what they're becoming.
             </p>
             <p className="mt-3 text-sm text-ink/55">

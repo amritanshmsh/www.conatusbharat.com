@@ -83,13 +83,13 @@ export default function Foundernote() {
           >
             Race ko choro, give{' '}
             <span className="text-iris-300 italic">dreams</span> their own{' '}
-            <span className="text-iris-300 italic">sky</span> — woh wahin{' '}
+            <span className="text-iris-300 italic">sky</span>, woh wahin{' '}
             <span className="text-iris-300 italic">belong</span> karte hain.
           </blockquote>
 
           <p className="mt-8 text-base sm:text-lg text-paper/65 max-w-2xl leading-relaxed">
             We didn't build Conatus Bharat to make children faster, smarter, or
-            more competitive. We built it so each one knows who they are — and
+            more competitive. We built it so each one knows who they are, and
             walks toward it without flinching.
           </p>
         </div>

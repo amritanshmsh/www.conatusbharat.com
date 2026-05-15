@@ -18,7 +18,7 @@ export default function Home() {
           'Every child is gifted',
           'Just not in the same way',
           'See the student',
-          'Adapt — not average',
+          'Adapt, not average',
           'Wonder',
         ]}
         tone="ink"
@@ -31,7 +31,7 @@ export default function Home() {
       <Marquee
         items={[
           'NEP 2020',
-          'Grades 3 — 12',
+          'Grades 3 to 12',
           'NCERT-aligned',
           'CBSE',
           'Made in India',

@@ -4,9 +4,9 @@ import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import LoopLogo from '../components/LoopLogo';
 
 export const metadata: Metadata = {
-  title: 'Our Story — Conatus Bharat',
+  title: 'Our Story · Conatus Bharat',
   description:
-    'Why Conatus Bharat exists — and a note from the founder about the journey so far.',
+    'Why Conatus Bharat exists, and a note from the founder about the journey so far.',
 };
 
 export default function StoryPage() {
@@ -41,7 +41,7 @@ export default function StoryPage() {
 
           <p className="mt-8 max-w-2xl text-lg sm:text-xl text-ink/75 leading-relaxed">
             Tomorrow belongs to those who understand themselves. That is why
-            Conatus Bharat exists — to help every student, every school, and
+            Conatus Bharat exists. To help every student, every school, and
             every learning journey own theirs.
           </p>
         </div>
@@ -51,7 +51,7 @@ export default function StoryPage() {
           <p>
             The story of Conatus Bharat is the story of{' '}
             <span className="text-ink font-medium">countless children</span> who
-            were guided into traditional careers — not because they weren't
+            were guided into traditional careers. Not because they weren't
             capable of more, but because no one helped them understand their
             unique gifts, strengths, and passions.
           </p>
@@ -63,9 +63,9 @@ export default function StoryPage() {
 
           <div className="rounded-3xl bg-pastel-yellow text-ink p-7 sm:p-9 my-2">
             <ul className="space-y-3 font-display font-semibold text-xl sm:text-2xl leading-tight">
-              <li>If they struggled in math — they were called weak.</li>
-              <li>If they excelled in creativity — it was called a hobby.</li>
-              <li>If they explored beyond the syllabus — it was discouraged.</li>
+              <li>If they struggled in math, they were called weak.</li>
+              <li>If they excelled in creativity, it was called a hobby.</li>
+              <li>If they explored beyond the syllabus, it was discouraged.</li>
             </ul>
           </div>
 
@@ -77,9 +77,9 @@ export default function StoryPage() {
             className="rounded-3xl bg-ink text-paper p-9 sm:p-12 font-display font-bold leading-[1.05] tracking-[-0.02em]"
             style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}
           >
-            "Every child is gifted —
+            "Every child is gifted.
             <br />
-            <span className="text-iris-300">just not in the same way.</span>"
+            <span className="text-iris-300">Just not in the same way.</span>"
           </blockquote>
 
           <p>Conatus Bharat was built to change this reality.</p>
@@ -88,8 +88,8 @@ export default function StoryPage() {
             We believe{' '}
             <span className="text-ink font-medium">
               talent needs direction, not conformity
-            </span>{' '}
-            — and that children deserve an education that adapts to them, not
+            </span>
+            . And that children deserve an education that adapts to them, not
             the other way around.
           </p>
 
@@ -137,7 +137,7 @@ export default function StoryPage() {
             <p className="text-ink/75 text-base">
               We partner with schools to create learning environments that
               recognise diverse talents, encourage personalised pathways, and
-              prepare students not just for exams — but for life.
+              prepare students not just for exams, but for life.
             </p>
           </div>
         </div>
@@ -152,7 +152,7 @@ export default function StoryPage() {
             <p>
               I started Conatus Bharat because I was a student who didn't know
               what to do with his life. I was pushed into engineering because
-              it was the safe choice — not because anyone helped me understand
+              it was the safe choice. Not because anyone helped me understand
               what I was actually good at, or what I cared about.
             </p>
             <p>I don't want that to happen to another child.</p>
@@ -160,19 +160,19 @@ export default function StoryPage() {
               Wonder is the first thing we've built. It's far from perfect.
               The road has been hard, the team has changed, and many things we
               hoped to launch by now haven't launched yet. But the mission
-              hasn't changed: to help every student understand who they are —
+              hasn't changed: to help every student understand who they are,
               and to help them work towards it.
             </p>
             <p>
               If you're a school, a teacher, a parent, or a student who
-              believes education can be more honest about who children are —
+              believes education can be more honest about who children are,
               we'd love to hear from you.
             </p>
           </div>
 
           <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
             <div>
-              <div className="font-display font-bold text-lg">— Amritansh Mishra</div>
+              <div className="font-display font-bold text-lg">Amritansh Mishra</div>
               <div className="text-xs text-paper/55 mt-0.5">Founder, Conatus Bharat</div>
             </div>
             <Link

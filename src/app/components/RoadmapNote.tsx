@@ -49,7 +49,7 @@ export default function RoadmapNote() {
         </h2>
 
         <p className="text-base sm:text-lg leading-relaxed text-ink/70 max-w-2xl mx-auto mb-3">
-          Over time, Conatus Bharat will grow into a connected set of tools —
+          Over time, Conatus Bharat will grow into a connected set of tools:
           helping schools run, helping students discover what they love,
           helping families see learning clearly.
         </p>

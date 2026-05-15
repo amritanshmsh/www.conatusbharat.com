@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import LegalLayout from '../components/LegalLayout';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — Conatus Bharat',
+  title: 'Privacy Policy · Conatus Bharat',
   description:
     'How Conatus Bharat collects, uses, and protects personal information.',
 };
@@ -107,7 +107,7 @@ export default function PrivacyPage() {
           <li>We collect only what is needed to make Wonder work for the student.</li>
           <li>
             Children's progress and performance are visible to their teachers
-            and parents only — never publicly, never to other students,
+            and parents only. Never publicly, never to other students,
             never to third parties.
           </li>
           <li>We never sell, rent, or share children's data with advertisers.</li>

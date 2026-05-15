@@ -7,9 +7,9 @@ import LoopLogo from '../components/LoopLogo';
 import mentorsData from '../data/mentors.json';
 
 export const metadata: Metadata = {
-  title: 'Leadership — Conatus Bharat',
+  title: 'Leadership · Conatus Bharat',
   description:
-    'The people guiding Conatus Bharat — and the educators who help us see clearly.',
+    'The people guiding Conatus Bharat, and the educators who help us see clearly.',
 };
 
 const founders = [
@@ -76,7 +76,7 @@ export default function LeadershipPage() {
             <span className="text-ink/40">guiding us.</span>
           </h1>
           <p className="mt-7 max-w-2xl text-lg sm:text-xl text-ink/70 leading-relaxed">
-            The two of us at the centre — and the educators who help us see
+            The two of us at the centre, and the educators who help us see
             clearly.
           </p>
         </div>
@@ -206,7 +206,7 @@ export default function LeadershipPage() {
               We're a small team rebuilding for 2026.
             </div>
             <p className="text-paper/70 text-sm mt-2">
-              If you'd like to know more about working with us — see Work With Us.
+              If you'd like to know more about working with us, see Work With Us.
             </p>
           </div>
           <Link

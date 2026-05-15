@@ -4,8 +4,8 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const beliefs = [
   {
-    line: 'Every child is gifted —',
-    tail: 'just not in the same way.',
+    line: 'Every child is gifted.',
+    tail: 'Just not in the same way.',
     bg: 'bg-pastel-blue',
   },
   {

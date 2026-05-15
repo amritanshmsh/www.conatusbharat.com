@@ -7,7 +7,7 @@ import { Plus, ArrowUpRight } from 'lucide-react';
 const faqs = [
   {
     q: 'What is Conatus Bharat?',
-    a: "Conatus Bharat is an education company building tools that help every student understand who they are and what they're inclined toward. Our first product is Wonder — an adaptive learning platform for schools.",
+    a: "Conatus Bharat is an education company building tools that help every student understand who they are and what they're inclined toward. Our first product is Wonder, an adaptive learning platform for schools.",
   },
   {
     q: 'What is Wonder?',
@@ -15,11 +15,11 @@ const faqs = [
   },
   {
     q: 'What is the mission of Conatus Bharat?',
-    a: 'To ensure every student knows who they are — and to help them work towards it.',
+    a: 'To ensure every student knows who they are, and to help them work towards it.',
   },
   {
     q: 'Why was Conatus Bharat created?',
-    a: "Because most students don't know their strengths or what to explore. Conatus Bharat exists to help children fall in love with learning by understanding themselves — not by being forced through a one-size-fits-all system.",
+    a: "Because most students don't know their strengths or what to explore. Conatus Bharat exists to help children fall in love with learning by understanding themselves, not by being forced through a one-size-fits-all system.",
   },
 ];
 
@@ -57,7 +57,7 @@ export default function FaqSection() {
           <div className="lg:col-span-5 lg:pb-2">
             <p className="text-base sm:text-lg text-ink/70 leading-relaxed">
               The basics about Conatus Bharat and Wonder. Still curious?
-              Write to us — a real person will reply.
+              Write to us. A real person will reply.
             </p>
           </div>
         </div>

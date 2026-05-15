@@ -47,9 +47,9 @@ export default function FinalSection() {
               className="font-display font-bold leading-[0.95] tracking-[-0.025em]"
               style={{ fontSize: 'clamp(2.5rem, 7vw, 6rem)' }}
             >
-              More than a launch
+              More than a launch.
               <br />
-              — a promise.
+              A promise.
             </h2>
 
             <p className="mt-6 text-base sm:text-lg text-paper/80 max-w-xl leading-relaxed">

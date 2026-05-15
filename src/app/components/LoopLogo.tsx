@@ -10,7 +10,7 @@ type Props = {
 
 /**
  * Conatus Bharat brand mark.
- * Pulled from /public/assets/Black Logo.svg — inlined as a React
+ * Pulled from /public/assets/Black Logo.svg, inlined as a React
  * component so it inherits color tokens and scales crisp at any size.
  */
 export default function LoopLogo({

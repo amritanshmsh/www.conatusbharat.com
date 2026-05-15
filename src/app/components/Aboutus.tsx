@@ -49,7 +49,7 @@ export default function Aboutus() {
           <div className="lg:col-span-4 lg:pb-2">
             <p className="text-base sm:text-lg leading-relaxed text-paper/70">
               For years, students have been measured by a narrow definition of
-              success. We're building a different kind of company — one that
+              success. We're building a different kind of company. One that
               adapts to the student, not the other way around.
             </p>
           </div>
@@ -64,9 +64,9 @@ export default function Aboutus() {
             }`}
           >
             {[
-              { line: 'If they struggled in math —', tail: 'they were called weak.' },
-              { line: 'If they excelled in creativity —', tail: 'it was called a hobby.' },
-              { line: 'If they explored beyond the syllabus —', tail: 'it was discouraged.' },
+              { line: 'If they struggled in math,', tail: 'they were called weak.' },
+              { line: 'If they excelled in creativity,', tail: 'it was called a hobby.' },
+              { line: 'If they explored beyond the syllabus,', tail: 'it was discouraged.' },
             ].map((item, i) => (
               <div
                 key={i}
@@ -85,7 +85,7 @@ export default function Aboutus() {
             </p>
           </div>
 
-          {/* Video — wide */}
+          {/* Video, wide */}
           <div
             className={`lg:col-span-7 rounded-3xl overflow-hidden bg-black relative border border-white/10 transition-all duration-700 ${
               seen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
