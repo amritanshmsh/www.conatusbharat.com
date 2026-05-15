@@ -3,7 +3,6 @@ import React from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa6";
-import "../components/antonio-font.css";
 
 export default function StoryPage() {
   const { theme } = useTheme();

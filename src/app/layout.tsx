@@ -1,36 +1,50 @@
-import type { Metadata } from "next";
-import { Inter as font } from "next/font/google";
-import Head from "next/head";
-import { ThemeProvider } from "next-themes";
-import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import type { Metadata, Viewport } from 'next';
+import { Antonio, Inter } from 'next/font/google';
+import { ThemeProvider } from 'next-themes';
+import './globals.css';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import ScrollProgress from './components/ScrollProgress';
 
-const inter = font({ subsets: ["latin"], preload: true });
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+});
+
+const antonio = Antonio({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-display',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: "ConatusBharat - Own Tomorrow",
-  description: "Explore the future of education with ConatusBharat, where we empower the next generation to own tomorrow.",
-  keywords: "education, innovation, future, learning, ConatusBharat",
+  title: 'Conatus Bharat — Understanding begins here',
+  description:
+    'Most EdTech tells children what to learn. Conatus Bharat builds tools that understand how they learn.',
+  keywords: 'education, NEP, learning, Wonder, ConatusBharat, India, schools',
   openGraph: {
-    title: "ConatusBharat - Own Tomorrow",
-    description: "Explore the future of education with ConatusBharat, where we empower the next generation to own tomorrow.",
-    url: "https://www.conatusbharat.com",
-    siteName: "ConatusBharat",
-    images: [
-      {
-        url: "https://www.conatusbharat.com/og-image.jpg",
-        width: 800,
-        height: 600,
-        alt: "ConatusBharat Logo",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
+    title: 'Conatus Bharat — Understanding begins here',
+    description:
+      'Most EdTech tells children what to learn. We built Wonder to understand how they learn.',
+    url: 'https://www.conatusbharat.com',
+    siteName: 'Conatus Bharat',
+    locale: 'en_IN',
+    type: 'website',
   },
   alternates: {
-    canonical: "https://www.conatusbharat.com",
+    canonical: 'https://www.conatusbharat.com',
   },
+  icons: {
+    icon: '/favicon.ico',
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#5B6BFF',
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -39,37 +53,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="theme-color" content="#00b8ea" />
-        <link rel="canonical" href="https://www.conatusbharat.com" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "ConatusBharat",
-            url: "https://www.conatusbharat.com",
-            logo: "https://www.conatusbharat.com/logo.png",
-            sameAs: [
-              "https://www.facebook.com/ConatusBharat",
-              "https://twitter.com/ConatusBharat",
-            ],
-          })}
-        </script>
-      </Head>
-      <body suppressHydrationWarning className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <header>
-            <Navbar />
-          </header>
-          <main className="flex-grow">
-            {children}
-          </main>
-          <footer>
-            <Footer />
-          </footer>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${antonio.variable}`}
+    >
+      <body
+        suppressHydrationWarning
+        className="font-sans bg-paper text-ink antialiased"
+      >
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <ScrollProgress />
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

@@ -1,122 +1,109 @@
-'use client'
-import { useTheme } from 'next-themes';
+'use client';
+
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { ArrowUpRight } from 'lucide-react';
+import LoopLogo from './LoopLogo';
 
 export default function FinalSection() {
-  const { theme } = useTheme();
-  const isLightMode = theme === 'light';
-  const sectionRef = useRef<HTMLElement>(null);
-  const [visible, setVisible] = useState(false);
+  const ref = useRef<HTMLElement>(null);
+  const [seen, setSeen] = useState(false);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
-      ([e]) => e.isIntersecting && setVisible(true),
+      ([e]) => e.isIntersecting && setSeen(true),
       { threshold: 0.2 }
     );
-    if (sectionRef.current) obs.observe(sectionRef.current);
+    if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
 
   return (
     <section
-      ref={sectionRef}
-      className={`relative py-28 md:py-36 px-4 sm:px-6 overflow-hidden ${
-        isLightMode ? 'bg-gradient-to-b from-white via-gray-50 to-gray-100 text-gray-800' : 'bg-gradient-to-b from-black via-[#080808] to-black text-white'
-      }`}
+      ref={ref}
+      className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-10 bg-paper text-ink overflow-hidden"
     >
-      <div className={`absolute inset-0 ${isLightMode ? 'bg-[radial-gradient(#0000000c_1px,transparent_1px)]' : 'bg-[radial-gradient(#ffffff0c_1px,transparent_1px)]'} [background-size:32px_32px] pointer-events-none z-0`} />
-
-      <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full blur-3xl pointer-events-none ${isLightMode ? 'bg-blue-200/30' : 'bg-blue-500/10'}`} />
-
       <div
-        className={`relative z-10 max-w-5xl mx-auto px-4 sm:px-8 transition-all duration-1000 ${
-          visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        className={`relative max-w-7xl mx-auto rounded-[2rem] sm:rounded-[2.5rem] bg-iris text-paper overflow-hidden transition-all duration-1000 ${
+          seen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
-        <div className={`relative rounded-[2rem] overflow-hidden border ${
-          isLightMode
-            ? 'bg-white border-gray-200 shadow-xl shadow-black/5'
-            : 'bg-gradient-to-br from-white/[0.05] to-white/[0.01] border-white/10 backdrop-blur-sm'
-        }`}>
-          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 blur-3xl" />
-          <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-64 h-64 rounded-full bg-gradient-to-tr from-amber-500/20 to-pink-500/20 blur-3xl" />
+        {/* Decorative loops */}
+        <div aria-hidden className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full border-[40px] border-white/10" />
+          <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] rounded-full border-[30px] border-white/10" />
+          <div className="absolute inset-0 bg-dots-light opacity-50" />
+        </div>
 
-          <div className="relative p-10 md:p-16 lg:p-20 text-center">
-            <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8 border ${isLightMode ? 'bg-black/[0.03] border-black/10' : 'bg-white/5 border-white/10'}`}>
-              <span className="relative flex h-2 w-2">
-                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isLightMode ? 'bg-blue-400' : 'bg-blue-300'}`} />
-                <span className={`relative inline-flex rounded-full h-2 w-2 ${isLightMode ? 'bg-blue-500' : 'bg-blue-400'}`} />
-              </span>
-              <span className={`text-xs font-medium tracking-widest uppercase ${isLightMode ? 'text-gray-700' : 'text-gray-300'}`}>
-                Just the Beginning
+        <div className="relative px-7 sm:px-12 lg:px-20 py-16 sm:py-20 lg:py-28 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-paper/10 border border-paper/20 mb-7">
+              <span className="w-1.5 h-1.5 rounded-full bg-paper animate-pulse" />
+              <span className="text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase text-paper/85">
+                Just the beginning
               </span>
             </div>
 
             <h2
-              className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-[1.05] bg-clip-text text-transparent ${
-                isLightMode ? 'bg-gradient-to-b from-black to-gray-600' : 'bg-gradient-to-b from-white to-gray-400'
-              }`}
-              style={{ fontFamily: 'Antonio, sans-serif', letterSpacing: '-0.02em' }}
+              className="font-display font-bold leading-[0.95] tracking-[-0.025em]"
+              style={{ fontSize: 'clamp(2.5rem, 7vw, 6rem)' }}
             >
-              Build the future of
+              Build the future
               <br />
-              learning with us.
+              of learning with us.
             </h2>
 
-            <p className={`text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed ${isLightMode ? 'text-gray-600' : 'text-gray-300'}`}>
-              Conatus Bharat is more than a launch — it's a promise. To rethink what learning means.
-              To build tools that truly serve children. And to partner with those who dare to believe in better.
+            <p className="mt-6 text-base sm:text-lg text-paper/80 max-w-xl leading-relaxed">
+              Conatus Bharat is more than a launch — it's a promise. To rethink
+              what learning means. To build tools that truly serve children.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+            <div className="mt-9 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className={`group inline-flex items-center px-7 py-3.5 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 shadow-lg ${
-                  isLightMode ? 'bg-black text-white hover:bg-gray-900' : 'bg-white text-black hover:bg-gray-200'
-                }`}
+                className="group inline-flex items-center gap-1.5 px-6 py-3.5 rounded-full bg-paper text-iris text-sm font-bold hover:bg-ink hover:text-paper transition-all duration-300 hover:scale-105 shadow-xl"
               >
                 Bring Conatus to your school
-                <svg className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+                <ArrowUpRight size={14} strokeWidth={2.5} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
               <Link
                 href="https://wonderclassrooms.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center px-7 py-3.5 rounded-full text-sm sm:text-base font-semibold border transition-all duration-300 hover:scale-105 ${
-                  isLightMode ? 'border-gray-300 text-gray-800 hover:border-black hover:bg-black/[0.03]' : 'border-white/20 text-white hover:border-white/40 hover:bg-white/[0.04]'
-                }`}
+                className="inline-flex items-center gap-1.5 px-6 py-3.5 rounded-full border-2 border-paper/30 text-sm font-semibold text-paper hover:border-paper hover:bg-white/5 transition-all"
               >
                 Explore Wonder
               </Link>
             </div>
+          </div>
 
-            <div className={`pt-10 border-t ${isLightMode ? 'border-gray-200' : 'border-white/10'} grid grid-cols-3 gap-4 max-w-2xl mx-auto`}>
-              {[
-                { value: 'NEP', label: 'Aligned' },
-                { value: '24/7', label: 'Support' },
-                { value: 'India', label: 'Built for' },
-              ].map((s) => (
-                <div key={s.label} className="text-center">
-                  <div
-                    className={`text-2xl sm:text-3xl font-extrabold mb-1 ${isLightMode ? 'text-black' : 'text-white'}`}
-                    style={{ fontFamily: 'Antonio, sans-serif' }}
-                  >
-                    {s.value}
-                  </div>
-                  <div className={`text-[10px] sm:text-xs tracking-widest uppercase ${isLightMode ? 'text-gray-500' : 'text-gray-500'}`}>
-                    {s.label}
-                  </div>
-                </div>
-              ))}
+          <div className="lg:col-span-4 flex justify-center lg:justify-end">
+            <div className="relative">
+              <div className="absolute inset-0 rounded-full bg-paper/20 blur-2xl scale-110" />
+              <div className="relative w-44 h-44 sm:w-56 sm:h-56 rounded-full bg-paper flex items-center justify-center shadow-2xl">
+                <LoopLogo size={120} tone="iris" spinning />
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className={`absolute bottom-0 left-0 w-full h-px ${isLightMode ? 'bg-gray-300' : 'bg-white/10'}`} />
+        {/* Trust strip */}
+        <div className="relative border-t border-white/15 px-7 sm:px-12 lg:px-20 py-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-paper/85">
+          {[
+            { v: 'Grades 3–12', l: 'Built for' },
+            { v: 'NCERT', l: 'Aligned to' },
+            { v: 'NEP 2020', l: 'Designed for' },
+            { v: 'India', l: 'Made in' },
+          ].map((s) => (
+            <div key={s.v} className="text-center sm:text-left">
+              <div className="text-[10px] tracking-widest uppercase text-paper/55 mb-0.5">
+                {s.l}
+              </div>
+              <div className="font-display font-bold text-lg sm:text-xl">{s.v}</div>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
