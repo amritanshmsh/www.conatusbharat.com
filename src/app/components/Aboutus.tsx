@@ -38,7 +38,7 @@ export default function Aboutus() {
             </div>
 
             <h2
-              className="font-display font-bold leading-[0.95] tracking-[-0.03em]"
+              className="font-display font-bold leading-[1.02] tracking-[-0.03em]"
               style={{ fontSize: 'clamp(2.5rem, 6.5vw, 5.5rem)' }}
             >
               Every child is gifted.

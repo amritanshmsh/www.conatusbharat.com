@@ -44,7 +44,7 @@ export default function FinalSection() {
             </div>
 
             <h2
-              className="font-display font-bold leading-[0.95] tracking-[-0.025em]"
+              className="font-display font-bold leading-[1.02] tracking-[-0.025em]"
               style={{ fontSize: 'clamp(2.5rem, 7vw, 6rem)' }}
             >
               More than a launch.

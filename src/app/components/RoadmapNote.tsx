@@ -40,7 +40,7 @@ export default function RoadmapNote() {
         </div>
 
         <h2
-          className="font-display font-bold leading-[0.95] tracking-[-0.03em] mb-7"
+          className="font-display font-bold leading-[1.02] tracking-[-0.03em] mb-7"
           style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
         >
           Wonder is the first piece

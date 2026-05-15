@@ -39,7 +39,7 @@ export default function LegalLayout({
             </span>
           </div>
           <h1
-            className="font-display font-bold leading-[0.95] tracking-[-0.04em]"
+            className="font-display font-bold leading-[1.02] tracking-[-0.04em]"
             style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)' }}
           >
             {title}

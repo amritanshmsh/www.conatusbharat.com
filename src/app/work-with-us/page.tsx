@@ -13,22 +13,18 @@ const areas = [
   {
     title: 'Engineering',
     items: ['Full Stack', 'Frontend', 'AI / ML', 'DevOps'],
-    bg: 'bg-pastel-blue',
   },
   {
     title: 'Design',
     items: ['UI / UX', 'Brand'],
-    bg: 'bg-pastel-yellow',
   },
   {
     title: 'Education',
     items: ['Researchers', 'Curriculum specialists', 'Teachers'],
-    bg: 'bg-pastel-pink',
   },
   {
     title: 'Product',
     items: ['Product manager'],
-    bg: 'bg-pastel-green',
   },
 ];
 
@@ -64,7 +60,7 @@ export default function WorkWithUsPage() {
             </span>
           </div>
           <h1
-            className="font-display font-bold leading-[0.9] tracking-[-0.04em]"
+            className="font-display font-bold leading-[1.02] tracking-[-0.04em]"
             style={{ fontSize: 'clamp(3rem, 9vw, 7rem)' }}
           >
             Build with us.
@@ -75,8 +71,8 @@ export default function WorkWithUsPage() {
         <div className="rounded-3xl bg-ink text-paper p-8 sm:p-10 mb-12 relative overflow-hidden">
           <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full border-[10px] border-white/10" />
           <div className="relative">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pastel-yellow text-ink mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-ink animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-iris text-paper mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-paper animate-pulse" />
               <span className="text-[10px] font-bold tracking-[0.2em] uppercase">
                 Applications paused
               </span>
@@ -110,7 +106,7 @@ export default function WorkWithUsPage() {
             Roles we'll be hiring for
           </div>
           <h2
-            className="font-display font-bold leading-[0.95] tracking-[-0.03em] mb-8"
+            className="font-display font-bold leading-[1.02] tracking-[-0.03em] mb-8"
             style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}
           >
             When we reopen, these are the areas
@@ -118,9 +114,21 @@ export default function WorkWithUsPage() {
             <span className="text-ink/40">we'll be building.</span>
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {areas.map((a) => (
-              <div key={a.title} className={`rounded-3xl ${a.bg} text-ink p-7 sm:p-8`}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-ink/10 rounded-3xl overflow-hidden border border-ink/10">
+            {areas.map((a, i) => (
+              <div
+                key={a.title}
+                className="bg-paper text-ink p-7 sm:p-8 hover:bg-ink hover:text-paper transition group"
+              >
+                <div className="flex items-center justify-between mb-5">
+                  <span
+                    className="font-display font-bold text-iris/40 group-hover:text-iris transition-colors leading-none"
+                    style={{ fontSize: '1.5rem' }}
+                  >
+                    0{i + 1}
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-iris/40 group-hover:bg-iris transition-colors" />
+                </div>
                 <h3 className="font-display font-bold text-2xl sm:text-3xl mb-4">
                   {a.title}
                 </h3>
@@ -128,9 +136,9 @@ export default function WorkWithUsPage() {
                   {a.items.map((it) => (
                     <li
                       key={it}
-                      className="flex items-center gap-2 text-base text-ink/80"
+                      className="flex items-center gap-2 text-base opacity-80"
                     >
-                      <span className="w-1 h-1 rounded-full bg-ink" />
+                      <span className="w-1 h-1 rounded-full bg-iris" />
                       {it}
                     </li>
                   ))}
@@ -146,7 +154,7 @@ export default function WorkWithUsPage() {
             What we look for
           </div>
           <h2
-            className="font-display font-bold leading-[0.95] tracking-[-0.03em] mb-8"
+            className="font-display font-bold leading-[1.02] tracking-[-0.03em] mb-8"
             style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}
           >
             People who care.
@@ -166,9 +174,9 @@ export default function WorkWithUsPage() {
         </section>
 
         {/* Footer note */}
-        <div className="rounded-3xl bg-pastel-yellow text-ink p-7 sm:p-9 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="rounded-3xl border-2 border-ink/10 bg-paper p-7 sm:p-9 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <div className="text-[11px] tracking-[0.25em] uppercase text-ink/60 mb-1">
+            <div className="text-[11px] tracking-[0.25em] uppercase text-iris font-bold mb-1">
               When we reopen
             </div>
             <a

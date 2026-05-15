@@ -68,7 +68,7 @@ export default function LeadershipPage() {
             </span>
           </div>
           <h1
-            className="font-display font-bold leading-[0.9] tracking-[-0.04em]"
+            className="font-display font-bold leading-[1.02] tracking-[-0.04em]"
             style={{ fontSize: 'clamp(3rem, 9vw, 7rem)' }}
           >
             The people
@@ -124,7 +124,7 @@ export default function LeadershipPage() {
                 Advisory board
               </div>
               <h2
-                className="font-display font-bold leading-[0.95] tracking-[-0.03em]"
+                className="font-display font-bold leading-[1.02] tracking-[-0.03em]"
                 style={{ fontSize: 'clamp(2rem, 5vw, 3.75rem)' }}
               >
                 Educators who tell us
@@ -141,25 +141,15 @@ export default function LeadershipPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {mentors.map((m, i) => {
-              const tones = [
-                'bg-pastel-blue',
-                'bg-pastel-yellow',
-                'bg-pastel-pink',
-                'bg-pastel-green',
-                'bg-pastel-peach',
-                'bg-pastel-lilac',
-                'bg-pastel-mint',
-              ];
-              const bg = tones[i % tones.length];
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-ink/10 rounded-3xl overflow-hidden border border-ink/10">
+            {mentors.map((m) => {
               return (
                 <div
                   key={m.name}
-                  className={`rounded-3xl ${bg} text-ink p-6 flex flex-col gap-4`}
+                  className="bg-paper text-ink p-6 flex flex-col gap-4 hover:bg-ink hover:text-paper transition group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden bg-ink/10 shrink-0">
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden bg-ink/10 group-hover:ring-2 group-hover:ring-iris transition shrink-0">
                       {m.image && (
                         <Image
                           src={m.image}
@@ -174,12 +164,12 @@ export default function LeadershipPage() {
                       <div className="font-display font-bold text-base leading-tight">
                         {m.name}
                       </div>
-                      <div className="text-[11px] text-ink/65 leading-snug mt-0.5">
+                      <div className="text-[11px] opacity-65 leading-snug mt-0.5">
                         {m.role}
                       </div>
                     </div>
                   </div>
-                  <p className="text-sm text-ink/70 leading-relaxed line-clamp-5">
+                  <p className="text-sm opacity-70 leading-relaxed line-clamp-5">
                     {m.bio}
                   </p>
                   {m.linkedin && (
@@ -187,7 +177,7 @@ export default function LeadershipPage() {
                       href={m.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-ink/70 hover:text-iris transition mt-auto"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold opacity-70 hover:opacity-100 hover:text-iris transition mt-auto"
                     >
                       <FaLinkedin />
                       LinkedIn

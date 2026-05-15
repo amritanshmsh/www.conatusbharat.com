@@ -24,15 +24,6 @@ const config: Config = {
           800: '#252C82',
           900: '#171B52',
         },
-        pastel: {
-          pink: '#FFC9D9',
-          yellow: '#FFE89E',
-          blue: '#B5DAFF',
-          green: '#BCEFC8',
-          peach: '#FFD3B0',
-          lilac: '#D8C9FF',
-          mint: '#C9F1E5',
-        },
       },
       fontFamily: {
         display: ['var(--font-display)', 'Antonio', 'sans-serif'],

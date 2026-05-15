@@ -1,99 +1,32 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import {
-  ArrowUpRight,
-  BookOpen,
-  Calculator,
-  Languages,
-  Globe,
-  Sparkles,
-  Bell,
-  Search,
-  Flame,
-  GraduationCap,
-} from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import LoopLogo from './LoopLogo';
 
-type Subject = {
-  key: string;
-  label: string;
-  grade: string;
-  chapters: number;
-  topics: number;
-  bg: string;
-  icon: React.ReactNode;
-  metrics: { label: string; value: number; color: string }[];
-  trait: string;
-};
-
-const subjects: Subject[] = [
+const features = [
   {
-    key: 'math',
-    label: 'Mathematics',
-    grade: 'Grade 6',
-    chapters: 3,
-    topics: 10,
-    bg: 'bg-pastel-blue',
-    icon: <Calculator size={18} />,
-    metrics: [
-      { label: 'Reasoning', value: 86, color: 'bg-iris' },
-      { label: 'Problem solving', value: 78, color: 'bg-iris-400' },
-      { label: 'Speed', value: 64, color: 'bg-iris-300' },
-    ],
-    trait: 'Visual learner · Curiosity high',
+    n: '01',
+    title: 'Adaptive practice',
+    body: 'From Grade 3. Wonder watches how each student answers, then changes the next question to match.',
   },
   {
-    key: 'english',
-    label: 'English',
-    grade: 'Grade 6',
-    chapters: 2,
-    topics: 5,
-    bg: 'bg-pastel-yellow',
-    icon: <BookOpen size={18} />,
-    metrics: [
-      { label: 'Comprehension', value: 92, color: 'bg-iris' },
-      { label: 'Vocabulary', value: 81, color: 'bg-iris-400' },
-      { label: 'Grammar', value: 70, color: 'bg-iris-300' },
-    ],
-    trait: 'Story-driven · Strong recall',
+    n: '02',
+    title: 'Career diagnostic',
+    body: 'From Grade 8. A long, slow read of strengths and inclinations, written into a Student Identity Profile.',
   },
   {
-    key: 'social',
-    label: 'Social Studies',
-    grade: 'Grade 6',
-    chapters: 2,
-    topics: 5,
-    bg: 'bg-pastel-peach',
-    icon: <Globe size={18} />,
-    metrics: [
-      { label: 'Critical thinking', value: 74, color: 'bg-iris' },
-      { label: 'Memory', value: 68, color: 'bg-iris-400' },
-      { label: 'Linking ideas', value: 82, color: 'bg-iris-300' },
-    ],
-    trait: 'Connects across topics',
-  },
-  {
-    key: 'hindi',
-    label: 'Hindi',
-    grade: 'Grade 6',
-    chapters: 1,
-    topics: 2,
-    bg: 'bg-pastel-pink',
-    icon: <Languages size={18} />,
-    metrics: [
-      { label: 'Reading', value: 88, color: 'bg-iris' },
-      { label: 'Expression', value: 76, color: 'bg-iris-400' },
-      { label: 'Writing', value: 71, color: 'bg-iris-300' },
-    ],
-    trait: 'Expressive · Confident voice',
+    n: '03',
+    title: 'For the teacher',
+    body: 'Live insights, weekly reports, and the time back to actually teach. Built for CBSE, NEP-aligned.',
   },
 ];
 
 export default function Products() {
   const ref = useRef<HTMLElement>(null);
   const [seen, setSeen] = useState(false);
-  const [active, setActive] = useState<Subject>(subjects[0]);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -110,14 +43,18 @@ export default function Products() {
       ref={ref}
       className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-10 bg-paper text-ink overflow-hidden"
     >
+      {/* Restrained graphic background, only iris */}
       <div aria-hidden className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-iris/[0.08] blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-pastel-yellow/40 blur-3xl" />
+        <div className="absolute -top-40 -left-32 w-[520px] h-[520px] rounded-full bg-iris/[0.05] blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[420px] h-[420px] rounded-full bg-iris/[0.04] blur-3xl" />
+        {/* Faint outline rings as graphics */}
+        <div className="absolute -top-32 right-10 w-72 h-72 rounded-full border border-ink/[0.06]" />
+        <div className="absolute -top-20 right-24 w-72 h-72 rounded-full border border-ink/[0.04]" />
       </div>
 
       <div className="relative max-w-7xl mx-auto">
         {/* Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-end">
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-iris/10 border border-iris/20 mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-iris" />
@@ -126,7 +63,7 @@ export default function Products() {
               </span>
             </div>
             <h2
-              className="font-display font-bold leading-[0.95] tracking-[-0.03em]"
+              className="font-display font-bold leading-[1.02] tracking-[-0.03em]"
               style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)' }}
             >
               <span className="relative inline-block">
@@ -147,164 +84,127 @@ export default function Products() {
               Adaptive practice from Grade 3. Career diagnostic from Grade 8.
               Built for CBSE. NEP 2020 aligned. NCERT curriculum.
             </p>
-            <Link
-              href="https://wonderclassrooms.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 group inline-flex items-center gap-1.5 text-sm font-semibold text-ink hover:text-iris transition"
-            >
-              Explore Wonder
-              <ArrowUpRight
-                size={14}
-                strokeWidth={2.5}
-                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-              />
-            </Link>
           </div>
         </div>
 
-        {/* Interactive Wonder dashboard */}
+        {/* Real product mockup */}
         <div
-          className={`relative rounded-[2rem] overflow-hidden bg-iris border border-iris-700 transition-all duration-700 ${
+          className={`relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden bg-ink text-paper transition-all duration-1000 ${
             seen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
-          <div className="flex items-center justify-between px-6 sm:px-8 pt-6 sm:pt-8 text-paper">
-            <div className="flex items-center gap-2 text-xs font-medium">
-              <span className="px-2.5 py-1 rounded-full bg-paper/15 border border-paper/20 inline-flex items-center gap-1.5">
-                <Search size={12} />
-                <span className="hidden sm:inline">Search topics, chapters, subjects…</span>
-                <span className="sm:hidden">Search…</span>
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="px-2 py-1 rounded-full bg-paper/15 text-[11px] font-bold inline-flex items-center gap-1">
-                <Flame size={11} />
-                12
-              </span>
-              <span className="w-7 h-7 rounded-full bg-paper/15 inline-flex items-center justify-center">
-                <Bell size={13} />
-              </span>
-              <span className="w-7 h-7 rounded-full bg-paper inline-flex items-center justify-center text-iris">
-                <GraduationCap size={14} />
-              </span>
+          {/* Decorative loop watermarks */}
+          <div aria-hidden className="absolute inset-0 pointer-events-none">
+            <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full border-[20px] border-white/[0.04]" />
+            <div className="absolute -bottom-40 -left-40 w-[28rem] h-[28rem] rounded-full border-[16px] border-white/[0.04]" />
+            <div className="absolute inset-0 bg-dots-light opacity-30" />
+            <div className="absolute top-8 left-8 opacity-15">
+              <LoopLogo size={80} tone="paper" />
             </div>
           </div>
 
-          <div className="px-6 sm:px-8 pt-8 pb-6 text-paper">
-            <div
-              className="font-display font-bold leading-none mb-3"
-              style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}
-            >
-              Let's Wonder, Ravi.
-            </div>
-            <div className="text-xs uppercase tracking-widest text-paper/60 mb-1">
-              Continue
-            </div>
-            <div className="flex items-center gap-2 text-sm font-semibold">
-              {active.icon}
-              {active.label} · Chapter {active.chapters}
-            </div>
-          </div>
-
-          <div className="px-4 sm:px-6 lg:px-8 pb-8 grid grid-cols-1 lg:grid-cols-12 gap-4">
-            <div className="lg:col-span-7">
-              <div className="flex items-center justify-between mb-3 text-paper/80 text-xs font-semibold tracking-widest uppercase">
-                <span>My subjects</span>
-                <span className="text-paper/50">tap to explore</span>
+          <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 px-7 sm:px-12 lg:px-16 pt-14 sm:pt-16 pb-10 lg:pb-0 items-center">
+            {/* Copy + features */}
+            <div className="lg:col-span-5 lg:py-16">
+              <div className="text-[11px] tracking-[0.3em] uppercase text-paper/55 mb-4 inline-flex items-center gap-2">
+                <span className="w-6 h-px bg-iris" />
+                wonderclassrooms.com
               </div>
-              <div className="grid grid-cols-2 gap-3">
-                {subjects.map((s) => {
-                  const isActive = s.key === active.key;
-                  return (
-                    <button
-                      key={s.key}
-                      onClick={() => setActive(s)}
-                      className={`group text-left rounded-2xl px-4 py-3.5 ${s.bg} text-ink relative overflow-hidden transition-all duration-300 ${
-                        isActive
-                          ? 'ring-2 ring-paper scale-[1.015] shadow-xl'
-                          : 'hover:scale-[1.01] hover:shadow-lg ring-1 ring-ink/5'
-                      }`}
+
+              <h3
+                className="font-display font-bold leading-[1.02] tracking-[-0.03em] mb-6"
+                style={{ fontSize: 'clamp(2rem, 4vw, 3.25rem)' }}
+              >
+                See every student.
+                <br />
+                <span className="text-paper/55">Teach to each one.</span>
+              </h3>
+
+              <p className="text-base text-paper/70 leading-relaxed mb-10 max-w-md">
+                A learning companion that adapts. A teacher dashboard that
+                clarifies. Built for the Indian classroom.
+              </p>
+
+              <ul className="space-y-5">
+                {features.map((f) => (
+                  <li key={f.n} className="flex gap-4">
+                    <span
+                      className="font-display font-bold text-iris/70 leading-none w-10 shrink-0"
+                      style={{ fontSize: '1.5rem' }}
                     >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <span className="w-7 h-7 rounded-lg bg-ink/10 inline-flex items-center justify-center">
-                            {s.icon}
-                          </span>
-                          <span className="font-bold text-sm">{s.label}</span>
-                        </div>
-                        <ArrowUpRight
-                          size={14}
-                          className={`transition-transform ${
-                            isActive ? 'rotate-0' : 'group-hover:rotate-12'
-                          }`}
-                        />
+                      {f.n}
+                    </span>
+                    <div>
+                      <div className="font-semibold text-paper text-base mb-1">
+                        {f.title}
                       </div>
-                      <div className="mt-2 text-[11px] text-ink/60">
-                        {s.grade} · {s.chapters} chapters · {s.topics} topics
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="lg:col-span-5">
-              <div className="rounded-2xl bg-paper text-ink p-5 h-full flex flex-col">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-semibold tracking-widest uppercase text-ink/60">
-                    Wonder · live insights
-                  </span>
-                  <span className="inline-flex items-center gap-1 text-[10px] font-bold text-iris">
-                    <Sparkles size={10} />
-                    LIVE
-                  </span>
-                </div>
-
-                <div className="text-base font-bold mb-1">{active.label}</div>
-                <div className="text-xs text-ink/60 mb-4">{active.trait}</div>
-
-                <div className="space-y-3 flex-1">
-                  {active.metrics.map((m) => (
-                    <div key={m.label}>
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-xs font-medium text-ink/70">{m.label}</span>
-                        <span className="text-xs font-bold tabular-nums">{m.value}%</span>
-                      </div>
-                      <div className="h-1.5 rounded-full bg-ink/[0.06] overflow-hidden">
-                        <div
-                          key={`${active.key}-${m.label}`}
-                          className={`h-full rounded-full ${m.color} transition-all duration-700`}
-                          style={{ width: `${m.value}%` }}
-                        />
+                      <div className="text-sm text-paper/65 leading-relaxed">
+                        {f.body}
                       </div>
                     </div>
-                  ))}
-                </div>
+                  </li>
+                ))}
+              </ul>
 
-                <div className="mt-5 pt-4 border-t border-ink/10 flex items-center justify-between">
-                  <div className="inline-flex items-center gap-1.5 text-[11px] font-medium text-ink/70">
-                    <span className="w-1.5 h-1.5 rounded-full bg-iris animate-pulse" />
-                    Adaptive path active
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-ink/50">
-                    NEP-aligned
-                  </span>
-                </div>
+              <div className="mt-10 flex flex-wrap items-center gap-3">
+                <Link
+                  href="https://wonderclassrooms.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-1.5 px-6 py-3 rounded-full bg-paper text-ink text-sm font-bold hover:bg-iris hover:text-paper transition-all duration-300 hover:scale-105"
+                >
+                  Explore Wonder
+                  <ArrowUpRight
+                    size={14}
+                    strokeWidth={2.5}
+                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-1.5 px-6 py-3 rounded-full border-2 border-paper/20 text-sm font-semibold text-paper hover:border-paper/50 hover:bg-white/5 transition-all"
+                >
+                  Talk to us
+                </Link>
+              </div>
+            </div>
+
+            {/* Product mockup image */}
+            <div className="lg:col-span-7 relative flex items-center justify-center lg:justify-end">
+              {/* Iris glow behind the screen */}
+              <div
+                aria-hidden
+                className="absolute inset-0 flex items-center justify-center pointer-events-none"
+              >
+                <div className="w-[80%] h-[60%] rounded-full bg-iris/40 blur-3xl" />
+              </div>
+
+              <div className="relative w-full max-w-[640px] aspect-[2158/1400]">
+                <Image
+                  src="/assets/Official-Color.png"
+                  alt="Wonder dashboard on a desktop display"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  className="object-contain"
+                  priority
+                />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Single CTA */}
-        <div className="mt-8 flex justify-center">
+        {/* Single CTA strip below */}
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 px-2">
+          <div className="text-sm text-ink/55">
+            Wonder is live for schools across India.
+          </div>
           <Link
             href="https://wonderclassrooms.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-ink text-paper text-sm font-semibold hover:bg-iris transition-all duration-300 hover:scale-105"
+            className="group inline-flex items-center gap-1.5 text-sm font-bold text-ink hover:text-iris transition"
           >
-            Explore Wonder
+            wonderclassrooms.com
             <ArrowUpRight
               size={14}
               strokeWidth={2.5}

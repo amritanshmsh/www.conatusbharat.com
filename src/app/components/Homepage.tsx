@@ -50,7 +50,7 @@ export default function Homepage() {
       {/* Decorative background */}
       <div aria-hidden className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-iris/[0.06] blur-3xl" />
-        <div className="absolute bottom-20 -left-40 w-[500px] h-[500px] rounded-full bg-pastel-yellow/30 blur-3xl" />
+        <div className="absolute bottom-20 -left-40 w-[500px] h-[500px] rounded-full bg-iris/[0.04] blur-3xl" />
         <div className="absolute inset-0 bg-dots opacity-60" />
       </div>
 

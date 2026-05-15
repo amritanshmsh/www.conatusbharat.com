@@ -46,7 +46,7 @@ export default function FaqSection() {
               </span>
             </div>
             <h2
-              className="font-display font-bold leading-[0.95] tracking-[-0.03em]"
+              className="font-display font-bold leading-[1.02] tracking-[-0.03em]"
               style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}
             >
               Questions,
@@ -117,9 +117,10 @@ export default function FaqSection() {
           })}
         </div>
 
-        <div className="mt-10 rounded-3xl bg-pastel-yellow text-ink p-7 sm:p-9 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
-          <div>
-            <div className="text-[11px] tracking-[0.25em] uppercase text-ink/60 mb-1">
+        <div className="mt-10 rounded-3xl bg-ink text-paper p-7 sm:p-9 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 relative overflow-hidden">
+          <div aria-hidden className="absolute -top-12 -right-12 w-44 h-44 rounded-full border-[10px] border-white/[0.06]" />
+          <div className="relative">
+            <div className="text-[11px] tracking-[0.25em] uppercase text-paper/55 mb-1">
               Still curious?
             </div>
             <div className="font-display font-bold text-2xl sm:text-3xl">
@@ -128,7 +129,7 @@ export default function FaqSection() {
           </div>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-1.5 px-6 py-3 rounded-full bg-ink text-paper text-sm font-semibold hover:bg-iris transition-all hover:scale-105 self-start sm:self-auto"
+            className="relative inline-flex items-center gap-1.5 px-6 py-3 rounded-full bg-iris text-paper text-sm font-semibold hover:bg-paper hover:text-ink transition-all hover:scale-105 self-start sm:self-auto"
           >
             Start a conversation
             <ArrowUpRight size={14} strokeWidth={2.5} />

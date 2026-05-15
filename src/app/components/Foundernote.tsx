@@ -34,7 +34,7 @@ export default function Foundernote() {
         >
           <div className="relative">
             <div className="absolute -top-6 -left-6 w-24 h-24 rounded-full bg-iris/30 blur-2xl" />
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-full bg-pastel-yellow/30 blur-2xl" />
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-full bg-iris/20 blur-2xl" />
             <div className="relative rounded-[2rem] overflow-hidden border border-white/15 aspect-[4/5] bg-white/5">
               <Image
                 src="/assets/founder.jpg"

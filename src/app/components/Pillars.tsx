@@ -1,27 +1,24 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import LoopLogo from './LoopLogo';
 
 const beliefs = [
   {
     line: 'Every child is gifted.',
     tail: 'Just not in the same way.',
-    bg: 'bg-pastel-blue',
   },
   {
     line: 'Talent needs',
     tail: 'direction, not conformity.',
-    bg: 'bg-pastel-yellow',
   },
   {
     line: 'Education should adapt',
     tail: 'to the student.',
-    bg: 'bg-pastel-pink',
   },
   {
     line: 'Understanding comes',
     tail: 'before instruction.',
-    bg: 'bg-pastel-green',
   },
 ];
 
@@ -44,7 +41,13 @@ export default function Pillars() {
       ref={ref}
       className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-10 bg-paper text-ink overflow-hidden"
     >
-      <div aria-hidden className="absolute inset-0 bg-dots opacity-50 pointer-events-none" />
+      {/* Restrained graphic background */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-grid opacity-30" />
+        <div className="absolute top-20 right-10 opacity-[0.06]">
+          <LoopLogo size={280} tone="ink" />
+        </div>
+      </div>
 
       <div className="relative max-w-7xl mx-auto">
         <div className="max-w-3xl mb-12">
@@ -55,7 +58,7 @@ export default function Pillars() {
             </span>
           </div>
           <h2
-            className="font-display font-bold leading-[0.95] tracking-[-0.03em]"
+            className="font-display font-bold leading-[1.02] tracking-[-0.03em]"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}
           >
             Four lines.
@@ -64,24 +67,34 @@ export default function Pillars() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-ink/10 rounded-3xl overflow-hidden border border-ink/10">
           {beliefs.map((b, i) => (
             <div
               key={i}
-              className={`group relative rounded-3xl ${b.bg} text-ink p-7 sm:p-9 overflow-hidden border border-ink/5 transition-all duration-700 hover:-translate-y-1 ${
+              className={`group relative bg-paper p-8 sm:p-10 transition-all duration-700 hover:bg-ink hover:text-paper ${
                 seen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
               style={{ transitionDelay: `${100 + i * 100}ms` }}
             >
+              <div className="flex items-start justify-between mb-6">
+                <span
+                  className="font-display font-bold text-iris/30 group-hover:text-iris/60 transition-colors leading-none"
+                  style={{ fontSize: '2rem' }}
+                >
+                  0{i + 1}
+                </span>
+                <span className="w-2 h-2 rounded-full bg-iris/40 group-hover:bg-iris transition-colors mt-2" />
+              </div>
+
               <div
                 className="font-display font-bold leading-[1.05] tracking-[-0.02em]"
                 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.5rem)' }}
               >
-                <div className="text-ink/55">{b.line}</div>
-                <div className="text-ink mt-1">{b.tail}</div>
+                <div className="text-current opacity-50 group-hover:opacity-60 transition-opacity">
+                  {b.line}
+                </div>
+                <div className="text-current mt-1">{b.tail}</div>
               </div>
-
-              <div className="absolute -bottom-12 -left-12 w-40 h-40 rounded-full border-[10px] border-ink/10" />
             </div>
           ))}
         </div>

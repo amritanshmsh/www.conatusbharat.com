@@ -33,7 +33,7 @@ export default function StoryPage() {
             </span>
           </div>
           <h1
-            className="font-display font-bold leading-[0.9] tracking-[-0.04em]"
+            className="font-display font-bold leading-[1.02] tracking-[-0.04em]"
             style={{ fontSize: 'clamp(3rem, 9vw, 7rem)' }}
           >
             "Own Tomorrow."
@@ -61,7 +61,7 @@ export default function StoryPage() {
             success.
           </p>
 
-          <div className="rounded-3xl bg-pastel-yellow text-ink p-7 sm:p-9 my-2">
+          <div className="rounded-3xl border-l-4 border-iris bg-ink/[0.03] text-ink p-7 sm:p-9 my-2">
             <ul className="space-y-3 font-display font-semibold text-xl sm:text-2xl leading-tight">
               <li>If they struggled in math, they were called weak.</li>
               <li>If they excelled in creativity, it was called a hobby.</li>
@@ -113,28 +113,28 @@ export default function StoryPage() {
         </article>
 
         {/* For students / for schools split */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-14">
-          <div className="rounded-3xl bg-pastel-blue p-7 sm:p-8">
-            <div className="text-[11px] tracking-[0.25em] uppercase text-ink/60 mb-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-ink/10 rounded-3xl overflow-hidden border border-ink/10 mt-14">
+          <div className="bg-paper p-7 sm:p-8 group">
+            <div className="text-[11px] tracking-[0.25em] uppercase text-iris mb-3 font-bold">
               For students
             </div>
             <h3 className="font-display font-bold text-2xl sm:text-3xl mb-3">
               Discover who you are.
             </h3>
-            <p className="text-ink/75 text-base">
+            <p className="text-ink/70 text-base">
               Every child carries unique potential. Through personalised
               insights and adaptive learning, we help children recognise their
               abilities and shape their own extraordinary futures.
             </p>
           </div>
-          <div className="rounded-3xl bg-pastel-pink p-7 sm:p-8">
-            <div className="text-[11px] tracking-[0.25em] uppercase text-ink/60 mb-3">
+          <div className="bg-paper p-7 sm:p-8 group">
+            <div className="text-[11px] tracking-[0.25em] uppercase text-iris mb-3 font-bold">
               For schools
             </div>
             <h3 className="font-display font-bold text-2xl sm:text-3xl mb-3">
               See every student.
             </h3>
-            <p className="text-ink/75 text-base">
+            <p className="text-ink/70 text-base">
               We partner with schools to create learning environments that
               recognise diverse talents, encourage personalised pathways, and
               prepare students not just for exams, but for life.

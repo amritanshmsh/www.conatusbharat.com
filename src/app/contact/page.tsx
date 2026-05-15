@@ -31,7 +31,7 @@ export default function ContactPage() {
             </span>
           </div>
           <h1
-            className="font-display font-bold leading-[0.9] tracking-[-0.04em]"
+            className="font-display font-bold leading-[1.02] tracking-[-0.04em]"
             style={{ fontSize: 'clamp(3rem, 8vw, 6rem)' }}
           >
             Tell us about
