@@ -1,89 +1,114 @@
-"use client"
-import React, { useRef, useEffect } from 'react';
-import { useTheme } from 'next-themes';
+'use client';
 
-const Aboutus = () => {
-  const { theme } = useTheme();
-  const isLightMode = theme === 'light';
+import React, { useEffect, useRef, useState } from 'react';
 
-  const firstRef = useRef<HTMLParagraphElement>(null);
-  const secondRef = useRef<HTMLParagraphElement>(null);
-  const thirdRef = useRef<HTMLParagraphElement>(null);
-  const fourthRef = useRef<HTMLParagraphElement>(null);
+export default function Aboutus() {
+  const ref = useRef<HTMLElement>(null);
+  const [seen, setSeen] = useState(false);
 
   useEffect(() => {
-    const elements = [
-      firstRef.current,
-      secondRef.current,
-      thirdRef.current,
-      fourthRef.current,
-    ];
-
-    let index = 0;
-
-    const interval = setInterval(() => {
-      elements.forEach((el, i) => {
-        if (el) {
-          el.style.opacity = i === index ? '1' : '0.2';
-        }
-      });
-      index = (index + 1) % elements.length;
-    }, 3000);
-
-    return () => clearInterval(interval);
+    const obs = new IntersectionObserver(
+      ([e]) => e.isIntersecting && setSeen(true),
+      { threshold: 0.15 }
+    );
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
   }, []);
 
   return (
-    <section id="about" className="bg-black text-white py-32 px-4 sm:px-6 md:px-8 lg:px-12 animate-fadein relative overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:50px_50px]"></div>
+    <section
+      id="belief"
+      ref={ref}
+      className="relative bg-ink text-paper py-24 sm:py-32 px-4 sm:px-6 lg:px-10 overflow-hidden"
+    >
+      <div aria-hidden className="absolute inset-0 pointer-events-none opacity-60">
+        <div className="absolute inset-0 bg-dots-light" />
+        <div className="absolute -top-40 right-0 w-[500px] h-[500px] rounded-full bg-iris/15 blur-3xl" />
       </div>
-      
-      <div className="max-w-7xl mx-auto flex flex-col items-center justify-center text-center space-y-12 relative z-10">
-        <div className="space-y-6">
-          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent whitespace-normal break-words tracking-tight" style={{fontFamily: 'Antonio, sans-serif', wordBreak: 'break-word', lineHeight: '1.1'}}>
-            This is what we're up against.
-          </h2>
-          <div className="w-24 h-1 rounded-full bg-gradient-to-r from-transparent via-white to-transparent mx-auto"></div>
+
+      <div className="relative max-w-7xl mx-auto">
+        {/* Section header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12 items-end">
+          <div className="lg:col-span-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-iris-300" />
+              <span className="text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase text-paper/70">
+                Why we exist
+              </span>
+            </div>
+
+            <h2
+              className="font-display font-bold leading-[1.02] tracking-[-0.03em]"
+              style={{ fontSize: 'clamp(2.5rem, 6.5vw, 5.5rem)' }}
+            >
+              Every child is gifted.
+              <br />
+              <span className="text-paper/40">Just not in the same way.</span>
+            </h2>
+          </div>
+          <div className="lg:col-span-4 lg:pb-2">
+            <p className="text-base sm:text-lg leading-relaxed text-paper/70">
+              For years, students have been measured by a narrow definition of
+              success. We're building a different kind of company. One that
+              adapts to the student, not the other way around.
+            </p>
+          </div>
         </div>
-        
-        <div className="relative w-full max-w-6xl group">
-          <div className="absolute -inset-4 bg-gradient-to-r from-white/10 via-white/5 to-white/10 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          
-          <div className="relative overflow-hidden rounded-2xl border-2 border-white/20 shadow-[0_0_60px_rgba(255,255,255,0.1),0_0_100px_rgba(255,255,255,0.05)] transition-all duration-500 group-hover:border-white/40 group-hover:shadow-[0_0_80px_rgba(255,255,255,0.15),0_0_120px_rgba(255,255,255,0.08)] bg-black">
-            <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-white/30 rounded-tl-2xl"></div>
-            <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-white/30 rounded-tr-2xl"></div>
-            <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-white/30 rounded-bl-2xl"></div>
-            <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-white/30 rounded-br-2xl"></div>
-            
+
+        {/* Three lines + video */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          {/* Three quiet truth cards */}
+          <div
+            className={`lg:col-span-5 grid grid-cols-1 gap-4 transition-all duration-700 ${
+              seen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            }`}
+          >
+            {[
+              { line: 'If they struggled in math,', tail: 'they were called weak.' },
+              { line: 'If they excelled in creativity,', tail: 'it was called a hobby.' },
+              { line: 'If they explored beyond the syllabus,', tail: 'it was discouraged.' },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="rounded-2xl bg-white/[0.04] border border-white/10 p-6 hover:bg-white/[0.06] hover:border-white/15 transition"
+              >
+                <div className="text-paper/60 text-sm sm:text-base">{item.line}</div>
+                <div className="text-paper text-base sm:text-lg font-semibold mt-1">
+                  {item.tail}
+                </div>
+              </div>
+            ))}
+
+            <p className="text-paper/65 text-sm sm:text-base leading-relaxed mt-2">
+              We don't think that's how minds grow. So we're building a
+              different kind of education company.
+            </p>
+          </div>
+
+          {/* Video, wide */}
+          <div
+            className={`lg:col-span-7 rounded-3xl overflow-hidden bg-black relative border border-white/10 transition-all duration-700 ${
+              seen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            }`}
+            style={{ transitionDelay: '160ms', minHeight: 320 }}
+          >
+            <div className="absolute top-4 left-4 z-10 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-iris text-paper text-[10px] font-bold tracking-widest uppercase shadow-lg">
+              Watch · 2 min
+            </div>
             <video
               controls
               autoPlay
               muted
               playsInline
-              className="w-full h-full object-cover relative z-10"
-              style={{ minHeight: '400px', maxHeight: '800px' }}
+              loop
+              className="w-full h-full object-cover"
+              style={{ minHeight: 320, maxHeight: 560 }}
             >
               <source src="/assets/Problem.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
             </video>
           </div>
-          
-          {/* Bottom accent line */}
-          <div className="mt-8 w-32 h-0.5 bg-gradient-to-r from-transparent via-white/50 to-transparent mx-auto"></div>
         </div>
       </div>
-      <style>{`
-        @keyframes fadein {
-          from { opacity: 0; transform: translateY(40px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fadein {
-          animation: fadein 1.2s cubic-bezier(.4,0,.2,1) both;
-        }
-      `}</style>
     </section>
   );
-};
-
-export default Aboutus;
+}

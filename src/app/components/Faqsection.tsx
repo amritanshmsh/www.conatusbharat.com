@@ -1,115 +1,141 @@
-'use client'
-import React, { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useTheme } from 'next-themes';
+'use client';
 
-gsap.registerPlugin(ScrollTrigger);
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { Plus, ArrowUpRight } from 'lucide-react';
 
-const faqData = [
+const faqs = [
   {
-    question: "What is Wonder?",
-    answer: "Wonder is a holistic learning platform that helps every student understand who they truly are — their strengths, skills, interests, and learning style — using adaptive learning and AI analysis.",
+    q: 'What is Conatus Bharat?',
+    a: "Conatus Bharat is an education company building tools that help every student understand who they are and what they're inclined toward. Our first product is Wonder, an adaptive learning platform for schools.",
   },
   {
-    question: "How is Wonder different from other learning apps?",
-    answer: "Unlike traditional apps that teach the same way to everyone, Wonder goes deep, not broad, offering personalized education, skill analysis, and personality insights for each student.",
+    q: 'What is Wonder?',
+    a: 'Wonder is our learning platform for Grades 3 to 12. Adaptive practice from Grade 3. Career diagnostic from Grade 8. NEP-aligned. CBSE curriculum.',
   },
   {
-    question: "How does Wonder help students discover their strengths?",
-    answer: "Wonder studies how students learn, behave, and perform across subjects and skills. It creates a Student Identity Profile that highlights strengths, weaknesses, skills, and recommended learning paths.",
+    q: 'What is the mission of Conatus Bharat?',
+    a: 'To ensure every student knows who they are, and to help them work towards it.',
   },
   {
-    question: "What is the mission of Conatus Bharat Education Pvt Ltd?",
-    answer: "Our mission is simple:<br /><br />To ensure every student knows who they are — and to help them work towards it.",
-  },
-  {
-    question: "Why was Conatus Bharat created?",
-    answer: "Because most students don't know their strengths or what to explore. Conatus Bharat was built to solve the root cause — helping students fall in love with learning by understanding themselves, not by forcing one-size-fits-all education.",
+    q: 'Why was Conatus Bharat created?',
+    a: "Because most students don't know their strengths or what to explore. Conatus Bharat exists to help children fall in love with learning by understanding themselves, not by being forced through a one-size-fits-all system.",
   },
 ];
 
-const FaqSection: React.FC = () => {
-  const { theme } = useTheme();
-  const isLightMode = theme === 'light';
-
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const faqRefs = useRef<Array<HTMLDivElement | null>>([]);
-
-  useEffect(() => {
-    gsap.utils.toArray('.faq-item').forEach((item: any) => {
-      gsap.fromTo(item, { opacity: 0, y: 20 }, {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: item,
-          start: 'top 85%',
-          end: 'top 60%',
-          scrub: 0.2,
-        },
-      });
-    });
-  }, []);
-
-  const toggleFaq = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  useEffect(() => {
-    faqRefs.current.forEach((faq, index) => {
-      if (faq) {
-        const content = faq.querySelector('.faq-content') as HTMLDivElement;
-        if (index === openIndex) {
-          gsap.to(content, { height: 'auto', opacity: 1, duration: 0.4, ease: 'power2.out' });
-        } else {
-          gsap.to(content, { height: 0, opacity: 0, duration: 0.3, ease: 'power2.in' });
-        }
-      }
-    });
-  }, [openIndex]);
+export default function FaqSection() {
+  const [open, setOpen] = useState<number>(0);
 
   return (
-    <section id="faq" className={`relative z-[50] w-full ${isLightMode ? 'bg-white' : 'bg-black'} py-10 px-4 md:px-10 lg:px-16`}>
-      <h2 className="text-3xl sm:text-4xl font-semibold mb-10 max-w-4xl mx-auto px-4 md:px-10 lg:px-20 text-left">
-        <span className={isLightMode ? 'text-gray-500' : 'text-gray-300'}>Frequently Asked </span>
-        <span className={isLightMode ? 'text-black' : 'text-white'}>Questions</span>
-      </h2>
-      <div className="max-w-4xl mx-auto space-y-5 px-4 md:px-10 lg:px-20">
-        {faqData.map((faq, index) => (
-          <div 
-            key={index} 
-            ref={el => {
-              faqRefs.current[index] = el;
-            }}
-            className={`faq-item p-3 md:p-4 rounded-xl ${isLightMode ? 'bg-gray-100 hover:bg-gray-200 border-gray-300' : 'bg-[#0c0c0c] hover:bg-[#1a1a1a] border-[#2a2a2a]'} shadow-sm border border-[0.2px] transition-all duration-300`}
-          >
-            <button 
-              onClick={() => toggleFaq(index)} 
-              className={`w-full text-left flex justify-between items-center font-medium text-sm md:text-base ${isLightMode ? 'text-gray-800' : 'text-white'} transition-colors duration-300`}
-            >
-              {faq.question}
-              <span className={`transition-transform duration-300 ${openIndex === index ? 'rotate-90' : ''}`}>
-                ➜
+    <section
+      id="faq"
+      className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-10 bg-paper text-ink overflow-hidden"
+    >
+      <div
+        aria-hidden
+        className="absolute -top-32 -right-32 w-[400px] h-[400px] rounded-full bg-iris/[0.06] blur-3xl"
+      />
+
+      <div className="relative max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12 items-end">
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-iris/10 border border-iris/20 mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-iris" />
+              <span className="text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase text-iris">
+                FAQ
               </span>
-            </button>
-            <div className="faq-content overflow-hidden mt-2 h-0 opacity-0">
-              <p 
-                className={`pt-2 text-xs md:text-sm ${isLightMode ? 'text-gray-600' : 'text-gray-400'}`} 
-                dangerouslySetInnerHTML={{ 
-                  __html: faq.answer.replace(
-                    /class='underline'/g, 
-                    `class='underline ${isLightMode ? 'text-gray-700 hover:text-black' : 'text-gray-300 hover:text-white'}'`
-                  )
-                }} 
-              />
+            </div>
+            <h2
+              className="font-display font-bold leading-[1.02] tracking-[-0.03em]"
+              style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}
+            >
+              Questions,
+              <br />
+              <span className="text-ink/40">answered.</span>
+            </h2>
+          </div>
+          <div className="lg:col-span-5 lg:pb-2">
+            <p className="text-base sm:text-lg text-ink/70 leading-relaxed">
+              The basics about Conatus Bharat and Wonder. Still curious?
+              Write to us. A real person will reply.
+            </p>
+          </div>
+        </div>
+
+        <div className="space-y-3">
+          {faqs.map((f, i) => {
+            const isOpen = open === i;
+            return (
+              <div
+                key={i}
+                className={`rounded-2xl border transition-all duration-300 ${
+                  isOpen
+                    ? 'bg-ink text-paper border-ink shadow-2xl shadow-ink/15'
+                    : 'bg-paper border-ink/10 hover:border-ink/20 hover:shadow-md'
+                }`}
+              >
+                <button
+                  onClick={() => setOpen(isOpen ? -1 : i)}
+                  className="w-full flex items-center gap-4 p-5 sm:p-6 text-left"
+                  aria-expanded={isOpen}
+                >
+                  <span
+                    className={`shrink-0 font-display text-sm font-bold w-9 h-9 rounded-xl inline-flex items-center justify-center ${
+                      isOpen ? 'bg-iris text-paper' : 'bg-ink/[0.06] text-ink/70'
+                    }`}
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="flex-1 font-semibold text-base sm:text-lg">
+                    {f.q}
+                  </span>
+                  <span
+                    className={`shrink-0 w-9 h-9 rounded-full inline-flex items-center justify-center transition-all duration-300 ${
+                      isOpen ? 'bg-paper text-ink rotate-45' : 'bg-ink/[0.06] text-ink/70'
+                    }`}
+                  >
+                    <Plus size={16} strokeWidth={2.5} />
+                  </span>
+                </button>
+
+                <div
+                  className={`grid transition-all duration-300 ease-out ${
+                    isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="px-5 sm:px-6 pb-6 pl-[4.5rem] sm:pl-[4.75rem]">
+                      <div className="h-px w-full bg-paper/15 mb-4" />
+                      <p className="text-sm sm:text-base text-paper/80 leading-relaxed">
+                        {f.a}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="mt-10 rounded-3xl bg-ink text-paper p-7 sm:p-9 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 relative overflow-hidden">
+          <div aria-hidden className="absolute -top-12 -right-12 w-44 h-44 rounded-full border-[10px] border-white/[0.06]" />
+          <div className="relative">
+            <div className="text-[11px] tracking-[0.25em] uppercase text-paper/55 mb-1">
+              Still curious?
+            </div>
+            <div className="font-display font-bold text-2xl sm:text-3xl">
+              Talk to us, like a human.
             </div>
           </div>
-        ))}
+          <Link
+            href="/contact"
+            className="relative inline-flex items-center gap-1.5 px-6 py-3 rounded-full bg-iris text-paper text-sm font-semibold hover:bg-paper hover:text-ink transition-all hover:scale-105 self-start sm:self-auto"
+          >
+            Start a conversation
+            <ArrowUpRight size={14} strokeWidth={2.5} />
+          </Link>
+        </div>
       </div>
     </section>
   );
-};
-
-export default FaqSection;
+}

@@ -1,63 +1,93 @@
 @tailwind base;
 @tailwind components;
-
 @tailwind utilities;
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 1.2s ease forwards;
-}
-
-body::-webkit-scrollbar {
-  display: none;
-}
-
 :root {
-  --primary-blue: #00b8ea;
-  --background-color: #ffffff;
+  --iris: #5B6BFF;
+  --iris-soft: #EEF0FF;
+  --ink: #0A0A0A;
+  --paper: #FFFFFF;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Anchored sections offset under the fixed nav so #wonder, #faq, etc.
+   don't land hidden behind the floating pill */
+section[id] {
+  scroll-margin-top: 96px;
 }
 
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  scroll-behavior: smooth;
-  background-color: var(--background-color);
+  background: var(--paper);
+  color: var(--ink);
 }
 
-#root, #__next {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+body::-webkit-scrollbar {
+  width: 8px;
 }
-
-.text-primary {
-  color: var(--primary-blue);
-}
-
-.bg-primary {
-  background-color: var(--primary-blue);
-}
-
-
-.wonder-card {
-  position: relative;
-  border-radius: 2rem;
-  background: #0B0F24;
-  padding: 2.5rem 2.5rem 3.5rem 2.5rem;
-  overflow: visible;
-}
-
-.wonder-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 2rem;
+body::-webkit-scrollbar-track {
   background: transparent;
-  z-index: 0;
-  clip-path: path("M0,0 H100% V100% Hcalc(100% - 70px) A35,35 0 0 1 calc(100% - 105px),calc(100% + 35px) A35,35 0 0 1 calc(100% - 140px),100% H0 Z");
+}
+body::-webkit-scrollbar-thumb {
+  background: rgba(91, 107, 255, 0.3);
+  border-radius: 4px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: rgba(91, 107, 255, 0.6);
+}
+
+::selection {
+  background: var(--iris);
+  color: white;
+}
+
+.font-display {
+  font-family: var(--font-display), 'Antonio', sans-serif;
+  letter-spacing: -0.025em;
+}
+
+/* Subtle dotted background pattern */
+.bg-dots {
+  background-image: radial-gradient(rgba(10, 10, 10, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-dots-light {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(10, 10, 10, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 10, 10, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Magnetic CTA glow */
+.glow-iris {
+  box-shadow:
+    0 10px 40px -10px rgba(91, 107, 255, 0.5),
+    0 0 0 1px rgba(91, 107, 255, 0.1);
+}
+
+/* Loop logo SVG sizing helper */
+.loop-logo {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Marquee gradient masks */
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
